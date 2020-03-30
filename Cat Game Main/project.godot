@@ -19,6 +19,10 @@ config/name="Cat Game Main"
 run/main_scene="res://Cat/Cat.tscn"
 config/icon="res://icon.png"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "codeandweb.texturepacker" )
+
 [input]
 
 turn_right={
