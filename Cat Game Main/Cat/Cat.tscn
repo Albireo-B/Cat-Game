@@ -51,10 +51,10 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 60.8752, 26.3022 )
+extents = Vector2( 120.373, 115.754 )
 
 [node name="Cat" type="KinematicBody2D"]
-position = Vector2( 152.961, 107.737 )
+position = Vector2( 54.6416, 100.174 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
