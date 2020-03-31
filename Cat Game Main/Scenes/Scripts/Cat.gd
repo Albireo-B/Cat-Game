@@ -52,7 +52,7 @@ func control(delta):
 	else:
 		energy_dec = -0.05
 	energy -= energy_dec
-	print(energy)
+	emit_signal("energy_changed",energy)
 	#set can move and can eat ??? 
 	if energy <= 0 or is_exhausted:
 		can_move = false
