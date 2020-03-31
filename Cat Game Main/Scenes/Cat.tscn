@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://assets/cat/walking/backward/frame_3.png" type="Texture" id=1]
 [ext_resource path="res://assets/cat/walking/right/frame_3.png" type="Texture" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://assets/GUI/food_bar_fill.png" type="Texture" id=24]
 [ext_resource path="res://assets/GUI/food_bar_empty.png" type="Texture" id=25]
 [ext_resource path="res://assets/GUI/energy_bar_empty.png" type="Texture" id=26]
+[ext_resource path="res://assets/room2.png" type="Texture" id=27]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -60,25 +61,30 @@ extents = Vector2( 120.373, 115.754 )
 
 [node name="Game" type="Node2D"]
 position = Vector2( -14.1963, 16.0875 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="RoomBackground" type="Sprite" parent="."]
+position = Vector2( 530.824, 285.145 )
+scale = Vector2( 0.945302, 0.771009 )
+texture = ExtResource( 27 )
 
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="Cat" type="KinematicBody2D" parent="Characters"]
 position = Vector2( 525.561, 359.414 )
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.25, 0.25 )
 script = ExtResource( 21 )
 __meta__ = {
 "_edit_group_": true
 }
-speed = 200.0
+speed = 150.0
 
 [node name="Body" type="AnimatedSprite" parent="Characters/Cat"]
 position = Vector2( 0, -0.263519 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/Cat"]
@@ -108,6 +114,7 @@ __meta__ = {
 [node name="EnergyBar" type="TextureProgress" parent="GUI/Bars"]
 margin_right = 396.0
 margin_bottom = 53.0
+rect_scale = Vector2( 0.7, 0.7 )
 value = 30.0
 texture_under = ExtResource( 26 )
 texture_progress = ExtResource( 23 )
@@ -116,9 +123,9 @@ __meta__ = {
 }
 
 [node name="FoodBar" type="TextureProgress" parent="GUI/Bars"]
-margin_top = 57.0
+margin_top = 40.0
 margin_right = 396.0
-margin_bottom = 97.0
+margin_bottom = 80.0
 value = 11.0
 texture_under = ExtResource( 25 )
 texture_progress = ExtResource( 24 )
