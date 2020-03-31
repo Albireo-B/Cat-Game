@@ -1,0 +1,128 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://Cat/walking/backward/frame_3.png" type="Texture" id=1]
+[ext_resource path="res://Cat/walking/right/frame_3.png" type="Texture" id=2]
+[ext_resource path="res://Cat/walking/forward/frame_1.png" type="Texture" id=3]
+[ext_resource path="res://Cat/walking/left/frame_3.png" type="Texture" id=4]
+[ext_resource path="res://Cat/walking/backward/frame_1.png" type="Texture" id=5]
+[ext_resource path="res://Cat/walking/right/frame_0.png" type="Texture" id=6]
+[ext_resource path="res://Cat/walking/backward/frame_0.png" type="Texture" id=7]
+[ext_resource path="res://Cat/walking/forward/frame_0.png" type="Texture" id=8]
+[ext_resource path="res://Cat/walking/backward/frame_2.png" type="Texture" id=9]
+[ext_resource path="res://Cat/walking/left/frame_1.png" type="Texture" id=10]
+[ext_resource path="res://Cat/walking/forward/frame_3.png" type="Texture" id=11]
+[ext_resource path="res://Cat/idle/frame_1.png" type="Texture" id=12]
+[ext_resource path="res://Cat/idle/frame_0.png" type="Texture" id=13]
+[ext_resource path="res://Cat/idle/frame_3.png" type="Texture" id=14]
+[ext_resource path="res://Cat/walking/left/frame_0.png" type="Texture" id=15]
+[ext_resource path="res://Cat/walking/forward/frame_2.png" type="Texture" id=16]
+[ext_resource path="res://Cat/walking/left/frame_2.png" type="Texture" id=17]
+[ext_resource path="res://Cat/walking/right/frame_1.png" type="Texture" id=18]
+[ext_resource path="res://Cat/walking/right/frame_2.png" type="Texture" id=19]
+[ext_resource path="res://Cat/idle/frame_2.png" type="Texture" id=20]
+[ext_resource path="res://scenes/Scripts/Cat.gd" type="Script" id=21]
+[ext_resource path="res://scenes/Scripts/GUI.gd" type="Script" id=22]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 12 ), ExtResource( 20 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "idle",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "walking_backward",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "walking_right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 3 ), ExtResource( 16 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "walking_forward",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 10 ), ExtResource( 17 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "walking_left",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 120.373, 115.754 )
+
+[node name="Game" type="Node2D"]
+
+[node name="RoomBackground" type="Sprite" parent="."]
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="Cat" type="KinematicBody2D" parent="Characters"]
+position = Vector2( 54.6416, 100.174 )
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 200.0
+
+[node name="Body" type="AnimatedSprite" parent="Characters/Cat"]
+position = Vector2( 0, -0.263519 )
+frames = SubResource( 1 )
+animation = "walking_left"
+frame = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/Cat"]
+shape = SubResource( 2 )
+
+[node name="GUI" type="MarginContainer" parent="."]
+margin_top = 8.0
+margin_right = 40.0
+margin_bottom = 8.0
+script = ExtResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="GUI"]
+
+[node name="Bars" type="VBoxContainer" parent="GUI"]
+margin_right = 40.0
+margin_bottom = 6.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnergyBar" type="HBoxContainer" parent="GUI/Bars"]
+margin_right = 40.0
+margin_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureProgress" type="TextureProgress" parent="GUI/Bars/EnergyBar"]
+margin_right = 1.0
+margin_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FoodBar" type="HBoxContainer" parent="GUI/Bars"]
+margin_top = 5.0
+margin_right = 40.0
+margin_bottom = 6.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureProgress" type="TextureProgress" parent="GUI/Bars/FoodBar"]
+margin_right = 1.0
+margin_bottom = 1.0
+value = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="energy_changed" from="Characters/Cat" to="GUI" method="_on_Cat_energy_changed"]
