@@ -1,6 +1,6 @@
 extends MarginContainer
 
-onready var energyBar = $Bars/EnergyBar/TextureProgress
+onready var energyBar = $Bars/EnergyBar
 onready var tween = $Tween
 
 func _ready():
