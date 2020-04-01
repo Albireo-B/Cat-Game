@@ -45,14 +45,14 @@ animations = [ {
 "name": "walking_right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ), ExtResource( 10 ), ExtResource( 17 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "walking_left",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 8 ), ExtResource( 3 ), ExtResource( 16 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "walking_forward",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 10 ), ExtResource( 17 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "walking_left",
 "speed": 5.0
 } ]
 
@@ -106,7 +106,7 @@ __meta__ = {
 
 [node name="Bars" type="VBoxContainer" parent="GUI"]
 margin_right = 396.0
-margin_bottom = 105.0
+margin_bottom = 97.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -115,7 +115,6 @@ __meta__ = {
 [node name="EnergyBar" type="TextureProgress" parent="GUI/Bars"]
 margin_right = 396.0
 margin_bottom = 53.0
-rect_scale = Vector2( 0.7, 0.7 )
 value = 30.0
 texture_under = ExtResource( 26 )
 texture_progress = ExtResource( 23 )
@@ -124,9 +123,9 @@ __meta__ = {
 }
 
 [node name="FoodBar" type="TextureProgress" parent="GUI/Bars"]
-margin_top = 40.0
+margin_top = 57.0
 margin_right = 396.0
-margin_bottom = 80.0
+margin_bottom = 97.0
 value = 11.0
 texture_under = ExtResource( 25 )
 texture_progress = ExtResource( 24 )
