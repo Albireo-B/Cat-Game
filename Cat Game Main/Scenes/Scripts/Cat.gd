@@ -19,12 +19,16 @@ var can_move = true
 func _ready():
 	#set Energy and Food ??
 	energy = max_energy
+	food = max_food/2
 	
+#update cat properties
 func control(delta):
 	var is_moving = false
 	var energy_dec = 0
+	var food_dec = 0.01
 	var is_exhausted = false
 	velocity = Vector2()
+	#set cat velocity and energy
 	if can_move:
 		is_moving = false
 		if Input.is_action_pressed("move_right"):
@@ -52,16 +56,20 @@ func control(delta):
 	else:
 		energy_dec = -0.05
 	energy -= energy_dec
+	food -= food_dec
+	#emit signals for energy and food bars
 	emit_signal("energy_changed",energy)
 	emit_signal("food_changed",food)
-	#set can move and can eat ??? 
+	#set movement limitations
 	if energy <= 0 or is_exhausted:
 		can_move = false
 	elif energy < 10:
 		is_exhausted = true
 	else:
 		can_move = true
-	#set animation
+	if food <=0 and (velocity.x != 0 or velocity.y !=0):
+		velocity /= 2
+	#set animations
 	if velocity.x == 0 && velocity.y == 0:
 		anim = "idle"
 	else :
