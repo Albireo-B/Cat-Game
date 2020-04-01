@@ -10,7 +10,7 @@ const max_energy = 100
 const max_food = 100
 
 var energy
-var food
+var food = 0 # =0 to remove
 var velocity = Vector2()
 var anim = "idle"
 var can_move = true
@@ -53,6 +53,7 @@ func control(delta):
 		energy_dec = -0.05
 	energy -= energy_dec
 	emit_signal("energy_changed",energy)
+	emit_signal("food_changed",food)
 	#set can move and can eat ??? 
 	if energy <= 0 or is_exhausted:
 		can_move = false
