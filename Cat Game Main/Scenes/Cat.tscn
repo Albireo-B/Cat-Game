@@ -66,8 +66,8 @@ __meta__ = {
 }
 
 [node name="RoomBackground" type="Sprite" parent="."]
-position = Vector2( 530.824, 285.145 )
-scale = Vector2( 0.945302, 0.771009 )
+position = Vector2( 526.741, 282.812 )
+scale = Vector2( 0.952861, 0.777115 )
 texture = ExtResource( 27 )
 
 [node name="Characters" type="Node2D" parent="."]
@@ -85,6 +85,7 @@ speed = 150.0
 position = Vector2( 0, -0.263519 )
 frames = SubResource( 1 )
 animation = "idle"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/Cat"]
@@ -133,3 +134,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="energy_changed" from="Characters/Cat" to="GUI" method="_on_Cat_energy_changed"]
+[connection signal="food_changed" from="Characters/Cat" to="GUI" method="_on_Cat_food_changed"]
