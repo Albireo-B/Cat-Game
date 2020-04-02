@@ -81,9 +81,11 @@ func control(delta):
 			anim = "walking_backward"
 		else:
 			anim = "walking_forward"
+
 	
 func _physics_process(delta):
 	control(delta)
 	if can_move:
 		move_and_slide(velocity)
 	sprite.play(anim)
+
