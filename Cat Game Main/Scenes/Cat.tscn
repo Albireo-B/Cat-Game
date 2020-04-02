@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://assets/cat/walking/backward/frame_3.png" type="Texture" id=1]
 [ext_resource path="res://assets/cat/walking/right/frame_3.png" type="Texture" id=2]
@@ -28,11 +28,13 @@
 [ext_resource path="res://assets/GUI/energy_bar_empty.png" type="Texture" id=26]
 [ext_resource path="res://assets/room2.png" type="Texture" id=27]
 [ext_resource path="res://scenes/Scripts/Food.gd" type="Script" id=28]
+[ext_resource path="res://assets/Food-Drink/milk-bottle-color.png" type="Texture" id=29]
 
-[sub_resource type="CircleShape2D" id=3]
-radius = 42.7034
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 10.1696
+height = 30.2561
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 13 ), ExtResource( 12 ), ExtResource( 20 ), ExtResource( 14 ) ],
 "loop": true,
@@ -44,6 +46,11 @@ animations = [ {
 "name": "walking_backward",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 8 ), ExtResource( 3 ), ExtResource( 16 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "walking_forward",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 6 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "walking_right",
@@ -53,14 +60,9 @@ animations = [ {
 "loop": true,
 "name": "walking_left",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ), ExtResource( 3 ), ExtResource( 16 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "walking_forward",
-"speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 113.601
 height = 3.0459
 
@@ -68,7 +70,7 @@ height = 3.0459
 position = Vector2( -10.8315, 16.6258 )
 
 [node name="RoomBackground" type="Sprite" parent="."]
-position = Vector2( 526.741, 282.227 )
+position = Vector2( 525.967, 282.519 )
 scale = Vector2( 0.952861, 0.777115 )
 texture = ExtResource( 27 )
 
@@ -81,17 +83,18 @@ polygon = PoolVector2Array( 57.9014, -172.576, -82.8621, 291.077, 869.276, 289.5
 [node name="Elements" type="Node2D" parent="."]
 
 [node name="Food" type="Area2D" parent="Elements"]
-position = Vector2( 27.55, 31.3501 )
+position = Vector2( -46.8021, 19.0464 )
 script = ExtResource( 28 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="Elements/Food"]
+position = Vector2( 342.001, 284.051 )
+scale = Vector2( -0.0862225, 0.0893065 )
+texture = ExtResource( 29 )
 
 [node name="FoodArea" type="CollisionShape2D" parent="Elements/Food"]
-position = Vector2( 340.876, 287.798 )
-shape = SubResource( 3 )
+position = Vector2( 342.131, 285.093 )
+scale = Vector2( 1, 0.972413 )
+shape = SubResource( 1 )
 
 [node name="Characters" type="Node2D" parent="."]
 
@@ -106,14 +109,15 @@ speed = 150.0
 
 [node name="Body" type="AnimatedSprite" parent="Characters/Cat"]
 position = Vector2( 0, -0.263519 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "idle"
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/Cat"]
 position = Vector2( 3.90723, 41.4771 )
 rotation = -1.60197
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="GUI" type="MarginContainer" parent="."]
 margin_left = 26.2331
@@ -156,5 +160,6 @@ texture_progress = ExtResource( 24 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="body_entered" from="Elements/Food" to="Elements/Food" method="_on_Food_body_entered"]
 [connection signal="energy_changed" from="Characters/Cat" to="GUI" method="_on_Cat_energy_changed"]
 [connection signal="food_changed" from="Characters/Cat" to="GUI" method="_on_Cat_food_changed"]
