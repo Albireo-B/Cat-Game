@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://assets/cat/walking/backward/frame_3.png" type="Texture" id=1]
 [ext_resource path="res://assets/cat/walking/right/frame_3.png" type="Texture" id=2]
@@ -26,15 +26,10 @@
 [ext_resource path="res://assets/GUI/food_bar_fill.png" type="Texture" id=24]
 [ext_resource path="res://assets/GUI/food_bar_empty.png" type="Texture" id=25]
 [ext_resource path="res://assets/GUI/energy_bar_empty.png" type="Texture" id=26]
-[ext_resource path="res://assets/room2.png" type="Texture" id=27]
-[ext_resource path="res://scenes/Scripts/Food.gd" type="Script" id=28]
-[ext_resource path="res://assets/Food-Drink/milk-bottle-color.png" type="Texture" id=29]
+[ext_resource path="res://assets/Rooms/Room_n1.png" type="Texture" id=27]
+[ext_resource path="res://assets/bg.png" type="Texture" id=28]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 10.1696
-height = 30.2561
-
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 13 ), ExtResource( 12 ), ExtResource( 20 ), ExtResource( 14 ) ],
 "loop": true,
@@ -46,6 +41,11 @@ animations = [ {
 "name": "walking_backward",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 15 ), ExtResource( 10 ), ExtResource( 17 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "walking_left",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 8 ), ExtResource( 3 ), ExtResource( 16 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "walking_forward",
@@ -55,92 +55,101 @@ animations = [ {
 "loop": true,
 "name": "walking_right",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 15 ), ExtResource( 10 ), ExtResource( 17 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "walking_left",
-"speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 113.601
 height = 3.0459
 
-[node name="Game" type="Node2D"]
-position = Vector2( -10.8315, 16.6258 )
+[node name="Main" type="Node"]
 
-[node name="RoomBackground" type="Sprite" parent="."]
-position = Vector2( 525.967, 282.519 )
-scale = Vector2( 0.952861, 0.777115 )
+[node name="BackgroundControl" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Sprite" parent="BackgroundControl"]
+scale = Vector2( 5.70057, 5.84634 )
+texture = ExtResource( 28 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="GameControl" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RoomBackground" type="Sprite" parent="GameControl"]
+scale = Vector2( 1.76039, 1.4357 )
 texture = ExtResource( 27 )
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="StaticBody2D" type="StaticBody2D" parent="RoomBackground"]
+[node name="StaticBody2D" type="StaticBody2D" parent="GameControl/RoomBackground"]
 position = Vector2( -384.957, -37.8369 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomBackground/StaticBody2D"]
-polygon = PoolVector2Array( 57.9014, -172.576, -82.8621, 291.077, 869.276, 289.528, -97.1585, 326.34, -82.2354, 125.774, 52.9534, -278.632, 732.031, -294.409, 870.706, 129.806, 870.706, 285.819, 739.972, -136.168, 740.389, -137.191, 692.384, -139.239, 679.443, -162.783, 677.773, -171.997, 284.526, -170.149, 268.337, -132.717, 116.163, -136.12, 98.5866, -171.85 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GameControl/RoomBackground/StaticBody2D"]
+position = Vector2( -0.513351, 0 )
+scale = Vector2( 1, 0.991651 )
+polygon = PoolVector2Array( 57.9014, -172.576, 3.98642, 6.89609, 3.23166, -92.4937, -32.3384, 12.3851, -26.8891, 109.665, -82.8621, 291.077, 869.276, 289.528, -97.1585, 326.34, -82.2354, 125.774, 52.9534, -278.632, 732.031, -294.409, 870.706, 129.806, 870.706, 285.819, 739.972, -136.168, 740.389, -137.191, 692.384, -139.239, 679.443, -162.783, 677.773, -171.997, 284.526, -170.149, 268.337, -132.717, 116.163, -136.12, 98.5866, -171.85 )
 
-[node name="Elements" type="Node2D" parent="."]
+[node name="Characters" type="Node2D" parent="GameControl"]
 
-[node name="Food" type="Area2D" parent="Elements"]
-position = Vector2( -46.8021, 19.0464 )
-script = ExtResource( 28 )
-
-[node name="Sprite" type="Sprite" parent="Elements/Food"]
-position = Vector2( 342.001, 284.051 )
-scale = Vector2( -0.0862225, 0.0893065 )
-texture = ExtResource( 29 )
-
-[node name="FoodArea" type="CollisionShape2D" parent="Elements/Food"]
-position = Vector2( 342.131, 285.093 )
-scale = Vector2( 1, 0.972413 )
-shape = SubResource( 1 )
-
-[node name="Characters" type="Node2D" parent="."]
-
-[node name="Cat" type="KinematicBody2D" parent="Characters"]
-position = Vector2( 540.781, 289.689 )
-scale = Vector2( 0.25, 0.25 )
+[node name="Cat" type="KinematicBody2D" parent="GameControl/Characters"]
+position = Vector2( -2.27515, 0 )
+scale = Vector2( 0.246723, 0.245135 )
 script = ExtResource( 21 )
 __meta__ = {
 "_edit_group_": true
 }
 speed = 150.0
 
-[node name="Body" type="AnimatedSprite" parent="Characters/Cat"]
+[node name="Body" type="AnimatedSprite" parent="GameControl/Characters/Cat"]
 position = Vector2( 0, -0.263519 )
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "idle"
 frame = 2
 playing = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/Cat"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameControl/Characters/Cat"]
 position = Vector2( 3.90723, 41.4771 )
 rotation = -1.60197
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
-[node name="GUI" type="MarginContainer" parent="."]
-margin_left = 26.2331
-margin_top = 4.10956
-margin_right = 422.233
-margin_bottom = 101.11
+[node name="GUI" type="MarginContainer" parent="GameControl"]
+margin_left = -942.54
+margin_top = -518.966
+margin_right = -546.54
+margin_bottom = -421.965
 script = ExtResource( 22 )
 __meta__ = {
 "_edit_group_": true,
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="Tween" type="Tween" parent="GUI"]
+[node name="Tween" type="Tween" parent="GameControl/GUI"]
 
-[node name="Bars" type="VBoxContainer" parent="GUI"]
+[node name="Bars" type="VBoxContainer" parent="GameControl/GUI"]
 margin_right = 396.0
 margin_bottom = 97.0
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="EnergyBar" type="TextureProgress" parent="GUI/Bars"]
+[node name="EnergyBar" type="TextureProgress" parent="GameControl/GUI/Bars"]
 margin_right = 396.0
 margin_bottom = 53.0
 value = 30.0
@@ -150,7 +159,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FoodBar" type="TextureProgress" parent="GUI/Bars"]
+[node name="FoodBar" type="TextureProgress" parent="GameControl/GUI/Bars"]
 margin_top = 57.0
 margin_right = 396.0
 margin_bottom = 97.0
@@ -160,6 +169,9 @@ texture_progress = ExtResource( 24 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="body_entered" from="Elements/Food" to="Elements/Food" method="_on_Food_body_entered"]
-[connection signal="energy_changed" from="Characters/Cat" to="GUI" method="_on_Cat_energy_changed"]
-[connection signal="food_changed" from="Characters/Cat" to="GUI" method="_on_Cat_food_changed"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[connection signal="energy_changed" from="GameControl/Characters/Cat" to="GameControl/GUI" method="_on_Cat_energy_changed"]
+[connection signal="food_changed" from="GameControl/Characters/Cat" to="GameControl/GUI" method="_on_Cat_food_changed"]

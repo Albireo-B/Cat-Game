@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Size="*res://Scenes/Scripts/Size.gd"
+SceneChanger="*res://Scenes/SceneChanger.tscn"
 
 [display]
 

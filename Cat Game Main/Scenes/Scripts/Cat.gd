@@ -22,7 +22,7 @@ func _ready():
 	food = max_food/2
 	
 #update cat properties
-func control(delta):
+func control():
 	var is_moving = false
 	var energy_dec = 0
 	var food_dec = 0.01
@@ -84,8 +84,9 @@ func control(delta):
 
 	
 func _physics_process(delta):
-	control(delta)
+	control()
 	if can_move:
+		print(velocity)
 		move_and_slide(velocity)
 	sprite.play(anim)
 
