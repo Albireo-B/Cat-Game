@@ -20,7 +20,6 @@ func _on_Cat_food_changed(cat_food):
 	
 func update_energy(new_value):
 	energyBar.value = new_value
-	print(energyBar.value)
 
 func update_food(new_value):
 	foodBar.value = new_value
