@@ -19,10 +19,11 @@ var can_move = true
 func _ready():
 	#set Energy and Food ??
 	energy = max_energy
+# warning-ignore:integer_division
 	food = max_food/2
 	
 #update cat properties
-func control(delta):
+func control():
 	var is_moving = false
 	var energy_dec = 0
 	var food_dec = 0.01
@@ -83,9 +84,10 @@ func control(delta):
 			anim = "walking_forward"
 
 	
-func _physics_process(delta):
-	control(delta)
+func _physics_process(_delta):
+	control()
 	if can_move:
+# warning-ignore:return_value_discarded
 		move_and_slide(velocity)
 	sprite.play(anim)
 

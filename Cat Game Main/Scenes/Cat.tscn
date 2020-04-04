@@ -46,11 +46,6 @@ animations = [ {
 "name": "walking_backward",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 3 ), ExtResource( 16 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "walking_forward",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 6 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "walking_right",
@@ -59,6 +54,11 @@ animations = [ {
 "frames": [ ExtResource( 15 ), ExtResource( 10 ), ExtResource( 17 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "walking_left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 3 ), ExtResource( 16 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "walking_forward",
 "speed": 5.0
 } ]
 
@@ -70,8 +70,8 @@ height = 3.0459
 position = Vector2( -10.8315, 16.6258 )
 
 [node name="RoomBackground" type="Sprite" parent="."]
-position = Vector2( 525.967, 282.519 )
-scale = Vector2( 0.952861, 0.777115 )
+position = Vector2( 522.024, 284.248 )
+scale = Vector2( 0.945081, 0.777508 )
 texture = ExtResource( 27 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="RoomBackground"]
@@ -111,7 +111,7 @@ speed = 150.0
 position = Vector2( 0, -0.263519 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Characters/Cat"]
