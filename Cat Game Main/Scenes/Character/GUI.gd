@@ -5,8 +5,8 @@ onready var foodBar = $Bars/FoodBar
 onready var tween = $Tween
 
 func _ready():
-	var cat_max_energy = $"../Cat".max_energy
-	var cat_max_food = $"../Cat".max_food
+	var cat_max_energy = $"../../GameControl/Cat".max_energy
+	var cat_max_food = $"../../GameControl/Cat".max_food
 	energyBar.max_value = cat_max_energy
 	energyBar.max_value = cat_max_food
 	update_energy(cat_max_energy)

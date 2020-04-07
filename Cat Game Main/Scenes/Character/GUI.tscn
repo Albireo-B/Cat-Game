@@ -6,32 +6,32 @@
 [ext_resource path="res://assets/GUI/energy_bar_fill.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Character/GUI.gd" type="Script" id=5]
 
-
 [node name="GUI" type="MarginContainer"]
-margin_left = -942.54
-margin_top = -518.966
-margin_right = -546.54
-margin_bottom = -421.965
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 23.0245
+margin_top = 19.8623
+margin_right = 23.0245
+margin_bottom = 19.8622
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true,
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Bars" type="VBoxContainer" parent="."]
-margin_right = 396.0
-margin_bottom = 97.0
+margin_right = 1024.0
+margin_bottom = 599.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="EnergyBar" type="TextureProgress" parent="Bars"]
-margin_right = 396.0
+margin_right = 1024.0
 margin_bottom = 53.0
-value = 30.0
+value = 100.0
 texture_under = ExtResource( 1 )
 texture_progress = ExtResource( 4 )
 __meta__ = {
@@ -40,9 +40,9 @@ __meta__ = {
 
 [node name="FoodBar" type="TextureProgress" parent="Bars"]
 margin_top = 57.0
-margin_right = 396.0
-margin_bottom = 97.0
-value = 11.0
+margin_right = 1024.0
+margin_bottom = 111.0
+value = 50.0
 texture_under = ExtResource( 2 )
 texture_progress = ExtResource( 3 )
 __meta__ = {

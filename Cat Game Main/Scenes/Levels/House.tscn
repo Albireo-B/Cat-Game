@@ -7,6 +7,11 @@
 
 [node name="Level1" type="Node"]
 
+[node name="UserInterface" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="GUI" parent="UserInterface" instance=ExtResource( 4 )]
+
 [node name="BackgroundControl" type="Control" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -51,7 +56,5 @@ polygon = PoolVector2Array( 57.9014, -172.576, 3.98642, 6.89609, 3.23166, -92.49
 
 [node name="Cat" parent="GameControl" instance=ExtResource( 3 )]
 position = Vector2( 305.225, 77.9058 )
-
-[node name="GUI" parent="GameControl" instance=ExtResource( 4 )]
-[connection signal="energy_changed" from="GameControl/Cat" to="GameControl/GUI" method="_on_Cat_energy_changed"]
-[connection signal="food_changed" from="GameControl/Cat" to="GameControl/GUI" method="_on_Cat_food_changed"]
+[connection signal="energy_changed" from="GameControl/Cat" to="UserInterface/GUI" method="_on_Cat_energy_changed"]
+[connection signal="food_changed" from="GameControl/Cat" to="UserInterface/GUI" method="_on_Cat_food_changed"]
