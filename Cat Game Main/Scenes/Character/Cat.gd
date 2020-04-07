@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name Cat
 
 signal food_changed
 signal energy_changed
@@ -86,7 +87,6 @@ func control():
 func _physics_process(delta):
 	control()
 	if can_move:
-		print(velocity)
 		move_and_slide(velocity)
 	sprite.play(anim)
 

@@ -1,0 +1,76 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://assets/cat/walking/right/frame_3.png" type="Texture" id=1]
+[ext_resource path="res://assets/cat/walking/backward/frame_0.png" type="Texture" id=2]
+[ext_resource path="res://assets/cat/walking/right/frame_0.png" type="Texture" id=3]
+[ext_resource path="res://assets/cat/walking/backward/frame_2.png" type="Texture" id=4]
+[ext_resource path="res://assets/cat/idle/frame_3.png" type="Texture" id=5]
+[ext_resource path="res://assets/cat/walking/left/frame_0.png" type="Texture" id=6]
+[ext_resource path="res://assets/cat/walking/forward/frame_0.png" type="Texture" id=7]
+[ext_resource path="res://assets/cat/walking/forward/frame_2.png" type="Texture" id=8]
+[ext_resource path="res://assets/cat/walking/left/frame_2.png" type="Texture" id=9]
+[ext_resource path="res://assets/cat/walking/left/frame_3.png" type="Texture" id=10]
+[ext_resource path="res://assets/cat/idle/frame_1.png" type="Texture" id=11]
+[ext_resource path="res://assets/cat/walking/backward/frame_1.png" type="Texture" id=12]
+[ext_resource path="res://assets/cat/idle/frame_0.png" type="Texture" id=13]
+[ext_resource path="res://assets/cat/walking/forward/frame_1.png" type="Texture" id=14]
+[ext_resource path="res://assets/cat/walking/backward/frame_3.png" type="Texture" id=15]
+[ext_resource path="res://assets/cat/walking/left/frame_1.png" type="Texture" id=16]
+[ext_resource path="res://assets/cat/walking/forward/frame_3.png" type="Texture" id=17]
+[ext_resource path="res://assets/cat/idle/frame_2.png" type="Texture" id=18]
+[ext_resource path="res://assets/cat/walking/right/frame_1.png" type="Texture" id=19]
+[ext_resource path="res://assets/cat/walking/right/frame_2.png" type="Texture" id=20]
+[ext_resource path="res://Scenes/Character/Cat.gd" type="Script" id=21]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 11 ), ExtResource( 18 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "idle",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 12 ), ExtResource( 4 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "walking_backward",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 14 ), ExtResource( 8 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "walking_forward",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "walking_right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 16 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "walking_left",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 113.601
+height = 3.0459
+
+[node name="Cat" type="KinematicBody2D"]
+position = Vector2( -2.27515, 0 )
+scale = Vector2( 0.246723, 0.245135 )
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 150.0
+
+[node name="Body" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -0.263519 )
+frames = SubResource( 1 )
+animation = "idle"
+frame = 1
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 3.90723, 41.4771 )
+rotation = -1.60197
+shape = SubResource( 2 )

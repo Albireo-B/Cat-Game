@@ -8,21 +8,26 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Cat",
+"language": "GDScript",
+"path": "res://Scenes/Character/Cat.gd"
+} ]
 _global_script_class_icons={
-
+"Cat": ""
 }
 
 [application]
 
 config/name="Cat Game Main"
-run/main_scene="res://scenes/Cat.tscn"
+run/main_scene="res://Scenes/Levels/House.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-Size="*res://Scenes/Scripts/Size.gd"
-SceneChanger="*res://Scenes/SceneChanger.tscn"
+Main="*res://Scenes/Main.gd"
+Size="*res://Scenes/Levels/Display/Size.gd"
 
 [display]
 
