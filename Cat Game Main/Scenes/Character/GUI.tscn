@@ -35,6 +35,7 @@ value = 100.0
 texture_under = ExtResource( 1 )
 texture_progress = ExtResource( 4 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -46,5 +47,6 @@ value = 50.0
 texture_under = ExtResource( 2 )
 texture_progress = ExtResource( 3 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
