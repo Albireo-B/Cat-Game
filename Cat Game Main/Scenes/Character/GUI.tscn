@@ -1,18 +1,20 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/GUI/energy_bar_empty.png" type="Texture" id=1]
 [ext_resource path="res://assets/GUI/food_bar_fill_bigger.png" type="Texture" id=2]
 [ext_resource path="res://assets/GUI/food_bar_empty_bigger.png" type="Texture" id=3]
 [ext_resource path="res://assets/GUI/energy_bar_fill.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Character/GUI.gd" type="Script" id=5]
+[ext_resource path="res://assets/Food-Drink/Cat-food_size.png" type="Texture" id=6]
+[ext_resource path="res://assets/Food-Drink/Health_Size.png" type="Texture" id=7]
 
 [node name="GUI" type="MarginContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 23.0245
-margin_top = 19.8623
-margin_right = 23.0245
-margin_bottom = 19.8622
+margin_left = 5.28579
+margin_top = 8.47598
+margin_right = 5.28577
+margin_bottom = 8.47583
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -27,24 +29,54 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="EnergyBar" type="TextureProgress" parent="Bars"]
-margin_right = 1024.0
-margin_bottom = 53.0
+[node name="EnergyBarArea" type="Node2D" parent="Bars"]
+
+[node name="EnergyText" type="TextureRect" parent="Bars/EnergyBarArea"]
+margin_left = 24.1073
+margin_top = 17.0248
+margin_right = 77.1073
+margin_bottom = 70.0248
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnergyBar" type="TextureProgress" parent="Bars/EnergyBarArea"]
+margin_left = 84.1155
+margin_top = 17.9464
+margin_right = 480.116
+margin_bottom = 70.9464
+size_flags_horizontal = 0
+size_flags_vertical = 0
 value = 100.0
 texture_under = ExtResource( 1 )
 texture_progress = ExtResource( 4 )
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="FoodBar" type="TextureProgress" parent="Bars"]
-margin_top = 57.0
-margin_right = 1024.0
-margin_bottom = 111.0
+[node name="FoodBarArea" type="Node2D" parent="Bars"]
+position = Vector2( -244.336, -57.0784 )
+
+[node name="FoodBar" type="TextureProgress" parent="Bars/FoodBarArea"]
+margin_left = 328.45
+margin_top = 151.878
+margin_right = 1352.45
+margin_bottom = 205.878
 value = 50.0
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="FoodText" type="TextureRect" parent="Bars/FoodBarArea"]
+margin_left = 268.362
+margin_top = 152.027
+margin_right = 321.362
+margin_bottom = 205.027
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 6 )
