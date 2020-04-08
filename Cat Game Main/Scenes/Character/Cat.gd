@@ -4,18 +4,21 @@ class_name Cat
 signal food_changed
 signal energy_changed
 
+onready var poop_scene = preload("res://Scenes/Elements/Poop.tscn")
 onready var sprite = get_node("Body")
 
 export (float) var speed
+
 const max_energy = 100
 const max_food = 100
+const defecate_food_amount = 10
 
 var energy
 var food = 0 # =0 to remove
 var velocity = Vector2()
 var anim = "idle"
 var can_move = true
-#var can_eat ??
+var can_shit = true
 
 func _ready():
 	#set Energy and Food ??
@@ -58,6 +61,11 @@ func control():
 		energy_dec = -0.05
 	energy -= energy_dec
 	food -= food_dec
+	#set food if cat shitting and instanciate shit
+	if can_shit:
+		if Input.is_action_just_pressed("defecating"):
+			food -= defecate_food_amount
+			instanciatePoop()
 	#emit signals for energy and food bars
 	emit_signal("energy_changed",energy)
 	emit_signal("food_changed",food)
@@ -68,8 +76,13 @@ func control():
 		is_exhausted = true
 	else:
 		can_move = true
+	#set food limitation (for movement and defecating)
 	if food <=0 and (velocity.x != 0 or velocity.y !=0):
 		velocity /= 2
+	elif food < defecate_food_amount:
+		can_shit = false
+	elif food >= defecate_food_amount:
+		can_shit = true
 	#set animations
 	if velocity.x == 0 && velocity.y == 0:
 		anim = "idle"
@@ -90,3 +103,13 @@ func _physics_process(delta):
 		move_and_slide(velocity)
 	sprite.play(anim)
 
+func instanciatePoop():
+	var new_poop = poop_scene.instance()
+	#set poop position
+	if velocity.x == 0 && velocity.y == 0:
+		new_poop.position.x = position.x
+		new_poop.position.y = position.y + 40
+	else :
+		new_poop.position.x = position.x - velocity.x/3.5
+		new_poop.position.y = position.y - velocity.y/3.5
+	get_parent().get_node("Poops").add_child(new_poop)

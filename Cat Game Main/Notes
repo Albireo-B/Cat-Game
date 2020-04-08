@@ -1,5 +1,10 @@
 
 
-Trucs a corriger : 
-	
+Trucs a corriger :
+
 	Lorsqu'on resize en horizontal, la caméra s'étend donc permet au joueur de voir plus = triche
+
+Trucs à faire :
+
+	Faire en sorte que mur ou pièce devienne opaque ( si mur le découper séparement)
+	Ajouter Area2D avec siganux body entered et exit pour check si le chat est dedans (activer/désactiver opacité)

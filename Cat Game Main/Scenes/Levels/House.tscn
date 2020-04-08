@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/Rooms/Room_n1.png" type="Texture" id=1]
 [ext_resource path="res://assets/bg.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Character/Cat.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Character/GUI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Elements/Food.tscn" type="PackedScene" id=5]
 
 [node name="Level1" type="Node"]
 
@@ -54,7 +55,21 @@ position = Vector2( -0.513351, 0 )
 scale = Vector2( 1, 0.991651 )
 polygon = PoolVector2Array( 57.9014, -172.576, 3.98642, 6.89609, 3.23166, -92.4937, -32.3384, 12.3851, -26.8891, 109.665, -82.8621, 291.077, 869.276, 289.528, -97.1585, 326.34, -82.2354, 125.774, 52.9534, -278.632, 732.031, -294.409, 870.706, 129.806, 870.706, 285.819, 739.972, -136.168, 740.389, -137.191, 692.384, -139.239, 679.443, -162.783, 677.773, -171.997, 284.526, -170.149, 268.337, -132.717, 116.163, -136.12, 98.5866, -171.85 )
 
+[node name="Poops" type="Node2D" parent="GameControl"]
+
+[node name="FoodElements" type="Node2D" parent="GameControl"]
+
+[node name="Food" parent="GameControl/FoodElements" instance=ExtResource( 5 )]
+position = Vector2( 610.149, -246.841 )
+scale = Vector2( 0.117614, 0.116896 )
+
+[node name="Food2" parent="GameControl/FoodElements" instance=ExtResource( 5 )]
+position = Vector2( -538.157, -273.499 )
+scale = Vector2( 0.117614, 0.117614 )
+
 [node name="Cat" parent="GameControl" instance=ExtResource( 3 )]
 position = Vector2( 305.225, 77.9058 )
+[connection signal="body_entered" from="GameControl/FoodElements/Food" to="GameControl/FoodElements/Food" method="_on_Food_body_entered"]
+[connection signal="body_entered" from="GameControl/FoodElements/Food2" to="GameControl/FoodElements/Food2" method="_on_Food_body_entered"]
 [connection signal="energy_changed" from="GameControl/Cat" to="UserInterface/GUI" method="_on_Cat_energy_changed"]
 [connection signal="food_changed" from="GameControl/Cat" to="UserInterface/GUI" method="_on_Cat_food_changed"]
