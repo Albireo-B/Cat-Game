@@ -65,7 +65,6 @@ scale = Vector2( 0.117614, 0.116896 )
 
 [node name="Food2" parent="GameControl/FoodElements" instance=ExtResource( 5 )]
 position = Vector2( -538.157, -273.499 )
-scale = Vector2( 0.117614, 0.117614 )
 
 [node name="Cat" parent="GameControl" instance=ExtResource( 3 )]
 position = Vector2( 305.225, 77.9058 )
