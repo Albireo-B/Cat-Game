@@ -1,7 +1,7 @@
 extends MarginContainer
 
-onready var energyBar = $Bars/EnergyBar
-onready var foodBar = $Bars/FoodBar
+onready var energyBar = $Bars/EnergyBarArea/EnergyBar
+onready var foodBar = $Bars/FoodBarArea/FoodBar
 onready var tween = $Tween
 
 func _ready():
