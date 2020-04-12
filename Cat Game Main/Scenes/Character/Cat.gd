@@ -113,3 +113,14 @@ func instanciatePoop():
 		new_poop.position.y = position.y - velocity.y/3.5
 	get_parent().get_node("Poops").add_child(new_poop)
 	
+func game_over():
+	set_physics_process(false)
+	get_node("GameOverAnimations").play("GameOverFadingAndText")
+
+func _on_RetryText_gui_input(event):
+		if event.is_pressed():
+			get_tree().reload_current_scene()
+			
+func _on_QuitGameText_gui_input(event):
+		if event.is_pressed():
+			get_tree().quit()

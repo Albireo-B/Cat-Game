@@ -58,7 +58,7 @@ speed = 1.0
 [node name="Body" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "walking_left"
-frame = 7
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
