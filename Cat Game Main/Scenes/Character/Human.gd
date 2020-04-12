@@ -3,8 +3,6 @@ extends KinematicBody2D
 onready var player = get_parent().get_node("Cat")
 onready var sprite = get_node("Body")
 
-#export (float) var speed
-
 var react_time = 400
 var velocity = Vector2(0,0)
 var direction = Vector2(0,0)
@@ -73,5 +71,10 @@ func control():
 	
 func _physics_process(delta):
 	control()
-	move_and_collide(velocity)
+	check_cat_collision(move_and_slide(velocity))
 	sprite.play(anim)
+	
+func check_cat_collision(body):
+	if get_slide_count() > 0:
+		if get_slide_collision(get_slide_count()-1).get_collider().name == "Cat":
+			get_tree().reload_current_scene()
