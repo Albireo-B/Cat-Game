@@ -24,7 +24,7 @@ func _ready():
 			var y = rand.randf_range(0,area_size.y)
 			food.position.x = x
 			food.position.y = y
-			food.connect("body_entered", food, "_on_Food_body_entered")
+#			food.connect("body_entered", food, "_on_Food_body_entered")
 			get_tree().get_current_scene().get_node("GameControl/FoodElements").add_child(food)
 
 
