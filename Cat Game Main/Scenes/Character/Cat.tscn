@@ -32,16 +32,6 @@ animations = [ {
 "name": "idle",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 12 ), ExtResource( 4 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "walking_backward",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 16 ), ExtResource( 9 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "walking_left",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 7 ), ExtResource( 14 ), ExtResource( 8 ), ExtResource( 17 ) ],
 "loop": true,
 "name": "walking_forward",
@@ -51,14 +41,16 @@ animations = [ {
 "loop": true,
 "name": "walking_left",
 "speed": 5.0
-<<<<<<< HEAD
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "walking_right",
 "speed": 5.0
-=======
->>>>>>> b3aee5b58c25f7d10ec282a61f44d1b2f21408d5
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 12 ), ExtResource( 4 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "walking_backward",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -143,7 +135,7 @@ speed = 150.0
 position = Vector2( 0, -0.263519 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
