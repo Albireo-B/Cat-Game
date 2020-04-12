@@ -34,6 +34,11 @@ animations = [ {
 "name": "walking_backward",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 6 ), ExtResource( 16 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "walking_left",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 7 ), ExtResource( 14 ), ExtResource( 8 ), ExtResource( 17 ) ],
 "loop": true,
 "name": "walking_forward",
@@ -42,11 +47,6 @@ animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "walking_right",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 16 ), ExtResource( 9 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "walking_left",
 "speed": 5.0
 } ]
 
@@ -57,6 +57,7 @@ height = 3.0459
 [node name="Cat" type="KinematicBody2D"]
 position = Vector2( -2.27515, 0 )
 scale = Vector2( 0.246723, 0.245135 )
+collision_mask = 23
 script = ExtResource( 21 )
 __meta__ = {
 "_edit_group_": true
@@ -67,6 +68,7 @@ speed = 150.0
 position = Vector2( 0, -0.263519 )
 frames = SubResource( 1 )
 animation = "idle"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

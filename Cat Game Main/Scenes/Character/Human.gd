@@ -21,8 +21,7 @@ func control():
 	velocity = Vector2()
 	var not_move = false
 
-	if !ckeck_poops() :
-		print("a")
+	if !check_poops() :
 		move_to(player.position)
 		
 	if next_direction.x != direction.x or next_direction.y != direction.y:
@@ -47,7 +46,7 @@ func control():
 			anim = "walking_forward"
 
 func move_to(target):
-		#	                      X
+		#	                  X
 		if target.x > position.x:
 			set_dir(1, 0)
 		elif target.x < position.x:
@@ -63,7 +62,8 @@ func move_to(target):
 			set_dir(-1, 1)
 		elif target.y == position.y:
 			set_dir(0, 1)
-	
+			
+			
 func set_dir(orientation_dir, axis=3):
 	if axis == 0:
 		if next_direction.x != orientation_dir:
@@ -75,25 +75,21 @@ func set_dir(orientation_dir, axis=3):
 			next_direction_time = 	OS.get_ticks_msec() + react_time
 		
 
-func ckeck_poops() :
+#	Check if a poop exist, and if yes, got to it direction and return true. Otherwise return false
+func check_poops() :
 	var all_poops = get_parent().get_node("Poops");
-	
 	if all_poops.get_child_count() != 0:
-		print(all_poops.get_child(0).position)
 		move_to(all_poops.get_child(0).position)
 		return true
 	else :
 		return false
-		
-	
-
 	
 func _physics_process(delta):
 	control()
-	check_cat_collision(move_and_slide(velocity))
+	check_collision(move_and_slide(velocity))
 	sprite.play(anim)
 	
-func check_cat_collision(body):
+func check_collision(body):
 	if get_slide_count() > 0:
 		if get_slide_collision(get_slide_count()-1).get_collider().name == "Cat":
 			get_tree().reload_current_scene()
