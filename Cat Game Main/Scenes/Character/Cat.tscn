@@ -39,14 +39,14 @@ animations = [ {
 "name": "walking_forward",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 1 ) ],
-"loop": true,
-"name": "walking_right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 6 ), ExtResource( 16 ), ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "walking_left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "walking_right",
 "speed": 5.0
 } ]
 
@@ -67,7 +67,7 @@ speed = 150.0
 position = Vector2( 0, -0.263519 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
