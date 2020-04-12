@@ -14,14 +14,13 @@ const max_food = 100
 const defecate_food_amount = 10
 
 var energy
-var food = 0 # =0 to remove
+var food = 0
 var velocity = Vector2()
 var anim = "idle"
 var can_move = true
 var can_shit = true
 
 func _ready():
-	#set Energy and Food ??
 	energy = max_energy
 	food = max_food/2
 	

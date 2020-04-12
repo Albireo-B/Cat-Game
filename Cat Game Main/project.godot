@@ -26,8 +26,9 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Main="*res://Scenes/Main.gd"
-Size="*res://Scenes/Levels/Display/Size.gd"
+Main="*res://Autoload_scripts/Main.gd"
+Size="*res://Autoload_scripts/Size.gd"
+FoodSpawner="*res://Autoload_scripts/FoodSpawner.gd"
 
 [display]
 
