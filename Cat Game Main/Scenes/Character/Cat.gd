@@ -112,3 +112,4 @@ func instanciatePoop():
 		new_poop.position.x = position.x - velocity.x/3.5
 		new_poop.position.y = position.y - velocity.y/3.5
 	get_parent().get_node("Poops").add_child(new_poop)
+	
