@@ -11,7 +11,7 @@ export (float) var speed
 
 const max_energy = 100
 const max_food = 100
-const defecate_food_amount = 10
+const defecate_food_amount = 75
 
 var energy
 var food = 0

@@ -7,24 +7,18 @@ onready var food_scene = preload("res://Scenes/Elements/Food.tscn")
 onready var rooms = get_tree().get_current_scene().get_node("GameControl/Rooms")
 
 func _ready():
-	
-	
-	
+	rand.randomize()
 	for room_id in range (0, rooms.get_child_count()):
 		room_list.append(rooms.get_child(room_id))
-
 	for room_node in room_list:
-#		print(room_node.get_world_2d().get_direct_space_state())
-		var area_size = room_node.get_node("FoodSpawningArea/FoodSpawningRectangle").shape.extents
+		var room_rect = room_node.get_node("FoodSpawningArea/FoodSpawningRectangle")
+		var area_size = room_rect.shape.extents
 		for i in range (0,2):
 			var food = food_scene.instance()
-			rand.randomize()
-			var x = rand.randf_range(0,area_size.x)
-			rand.randomize()
-			var y = rand.randf_range(0,area_size.y)
-			food.position.x = x
-			food.position.y = y
-#			food.connect("body_entered", food, "_on_Food_body_entered")
+			var x = rand.randf_range(0 - area_size.x, area_size.x)
+			var y = rand.randf_range(0 - area_size.y, area_size.y)
+			food.transform.origin.x = room_rect.transform.origin.x + x
+			food.transform.origin.y = room_rect.transform.origin.y + y
 			get_tree().get_current_scene().get_node("GameControl/FoodElements").add_child(food)
 
 

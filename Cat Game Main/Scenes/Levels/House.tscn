@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/Character/Human.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 62.9241, 393.694 )
+extents = Vector2( 346.838, 206.112 )
 
 [node name="Level1" type="Node"]
 
@@ -66,8 +66,7 @@ polygon = PoolVector2Array( 57.9014, -172.576, 3.98642, 6.89609, 3.23166, -92.49
 scale = Vector2( 1.76039, 1.4357 )
 
 [node name="FoodSpawningRectangle" type="CollisionShape2D" parent="GameControl/Rooms/Room/FoodSpawningArea"]
-position = Vector2( 11.3894, 36.1055 )
-scale = Vector2( 5.66957, 0.523673 )
+position = Vector2( 8.31577, 39.6828 )
 shape = SubResource( 1 )
 
 [node name="Poops" type="Node2D" parent="GameControl"]
@@ -75,8 +74,11 @@ shape = SubResource( 1 )
 [node name="FoodElements" type="Node2D" parent="GameControl"]
 
 [node name="Cat" parent="GameControl" instance=ExtResource( 3 )]
-position = Vector2( 276.601, 140.118 )
+position = Vector2( 17.4954, 190.115 )
 
 [node name="Human" parent="GameControl" instance=ExtResource( 5 )]
+position = Vector2( -739.936, 237.012 )
+[connection signal="body_entered" from="GameControl/Rooms/Room/FoodSpawningArea" to="GameControl/Human" method="_on_FoodSpawningArea_body_entered"]
+[connection signal="body_exited" from="GameControl/Rooms/Room/FoodSpawningArea" to="GameControl/Human" method="_on_FoodSpawningArea_body_exited"]
 [connection signal="energy_changed" from="GameControl/Cat" to="UserInterface/GUI" method="_on_Cat_energy_changed"]
 [connection signal="food_changed" from="GameControl/Cat" to="UserInterface/GUI" method="_on_Cat_food_changed"]

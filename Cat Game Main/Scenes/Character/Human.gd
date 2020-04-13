@@ -95,3 +95,11 @@ func check_collision(body):
 			set_physics_process(false)
 			get_tree().get_root().get_node("Level1/GameControl/Cat").game_over()
 
+
+
+func _on_FoodSpawningArea_body_entered(body):
+	print("spawnentered")
+
+
+func _on_FoodSpawningArea_body_exited(body):
+	print("spawnexit")
