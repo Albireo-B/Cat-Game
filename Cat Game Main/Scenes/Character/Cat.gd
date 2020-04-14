@@ -11,7 +11,7 @@ export (float) var speed
 
 const max_energy = 100
 const max_food = 100
-const defecate_food_amount = 10
+const defecate_food_amount = 75
 
 var energy
 var food = 0
@@ -28,7 +28,7 @@ func _ready():
 func control():
 	var is_moving = false
 	var energy_dec = 0
-	var food_dec = 0.01
+	var food_dec = 0.008
 	var is_exhausted = false
 	velocity = Vector2()
 	#set cat velocity and energy

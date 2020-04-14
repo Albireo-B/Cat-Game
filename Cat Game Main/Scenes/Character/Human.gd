@@ -94,4 +94,3 @@ func check_collision(body):
 			is_cat_touched = true
 			set_physics_process(false)
 			get_tree().get_root().get_node("Level1/GameControl/Cat").game_over()
-
