@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/Character/Cat.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Character/GUI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Character/Human.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/Rooms/Room_n2.png" type="Texture" id=6]
+[ext_resource path="res://assets/Rooms/bathroom.png" type="Texture" id=6]
 [ext_resource path="res://assets/Rooms/Furnitures/loungeChairRelax.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
