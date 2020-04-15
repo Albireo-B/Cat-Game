@@ -11,18 +11,38 @@ var next_direction_time = 0
 export (float) var speed
 var is_cat_touched = false
 var anim = "idle"
+var cat_covered = false
 
 func _ready():
 	pass
 	
 #update human properties
 func control():
-	#set human velocity
-	velocity = Vector2()
-
-	if !check_poops() :
+	if !check_poops() and !cat_covered:
 		move_to(player.position)
 		
+
+
+func move_to(target):
+	#set human velocity
+	velocity = Vector2()
+#	                  X
+	if target.x > position.x:
+		set_dir(1, 0)
+	elif target.x < position.x:
+		set_dir(-1, 0)
+	elif target.x == position.x:
+		set_dir(0, 0)	
+	
+#	                      Y
+	if target.y > position.y :
+		set_dir(1, 1)
+	
+	elif target.y < position.y:
+		set_dir(-1, 1)
+	elif target.y == position.y:
+		set_dir(0, 1)
+			
 	if next_direction.x != direction.x or next_direction.y != direction.y:
 		is_cat_touched = true
 
@@ -33,36 +53,20 @@ func control():
 	velocity = direction * speed
 
 #	set animations
-	if (velocity.x == 0 and velocity.y == 0) or is_cat_touched :
+	if (velocity.x == 0 and velocity.y == 0):
 		anim = "idle"
 		is_cat_touched = false
 	else :
-		if velocity.x > 0 :
+		if velocity.y < 0 :
+			anim = "walking_forward"
+		elif velocity.x > 0 :
 			anim = "walking_right"
 		elif velocity.x < 0:
 			anim = "walking_left"
-		elif velocity.y < 0 :
-			anim = "walking_forward"
 
-func move_to(target):
-		#	                  X
-		if target.x > position.x:
-			set_dir(1, 0)
-		elif target.x < position.x:
-			set_dir(-1, 0)
-		elif target.x == position.x:
-			set_dir(0, 0)	
-	
-	#	                      Y
-		if target.y > position.y :
-			set_dir(1, 1)
-	
-		elif target.y < position.y:
-			set_dir(-1, 1)
-		elif target.y == position.y:
-			set_dir(0, 1)
-			
-			
+
+
+
 func set_dir(orientation_dir, axis=3):
 	if axis == 0:
 		if next_direction.x != orientation_dir:
@@ -94,3 +98,16 @@ func check_collision(body):
 			is_cat_touched = true
 			set_physics_process(false)
 			get_tree().get_root().get_node("Level1/GameControl/Cat").game_over()
+			
+			
+			
+func go_start_position() :
+	var initial_position = Vector2(-700, 230)
+	move_to(initial_position)
+	print("go_start_position")
+
+
+func _on_Cat_cat_covered(cat_cov):
+	print("_on_Cat_cat_covered")
+	cat_covered = cat_cov
+	go_start_position()

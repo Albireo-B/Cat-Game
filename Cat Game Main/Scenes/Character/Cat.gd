@@ -3,6 +3,8 @@ class_name Cat
 
 signal food_changed
 signal energy_changed
+signal cat_covered
+
 
 onready var poop_scene = preload("res://Scenes/Elements/Poop.tscn")
 onready var sprite = get_node("Body")
@@ -124,3 +126,13 @@ func _on_RetryText_gui_input(event):
 func _on_QuitGameText_gui_input(event):
 		if event.is_pressed():
 			get_tree().quit()
+
+func _on_Area2D_body_entered(body):
+	if body.name == "Cat":
+		emit_signal("cat_covered", true)
+		print("_on_Area2D_body_entered")
+
+
+func _on_Area2D_body_exited(body):
+	if body.name == "Cat":
+		emit_signal("cat_covered", false)

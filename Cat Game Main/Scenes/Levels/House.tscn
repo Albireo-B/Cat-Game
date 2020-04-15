@@ -72,17 +72,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="GameControl/Rooms/Room/RoomFurnitures"]
+[node name="Lounge" type="Sprite" parent="GameControl/Rooms/Room/RoomFurnitures"]
 position = Vector2( 664.739, 6.3201 )
 rotation = -0.120816
 scale = Vector2( 0.644314, 0.666547 )
 texture = ExtResource( 6 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="GameControl/Rooms/Room/RoomFurnitures/Sprite"]
+[node name="Area2D" type="Area2D" parent="GameControl/Rooms/Room/RoomFurnitures/Lounge"]
 collision_layer = 4
-collision_mask = 32
+collision_mask = 33
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GameControl/Rooms/Room/RoomFurnitures/Sprite/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GameControl/Rooms/Room/RoomFurnitures/Lounge/Area2D"]
+position = Vector2( -0.187134, 1.48938 )
+polygon = PoolVector2Array( -85.4127, 14.5859, -36.0513, 5.08026, -36.0276, -11.5459, -28.5682, -10.6705, -28.5833, -37.9437, -28.2931, -51.2127, -19.6616, -54.1907, 42.3564, -54.8943, 54.1316, -55.5078, 76.9102, -105.382, 104.96, -104.086, 126.157, -53.7067, 126.995, -32.9884, 91.3907, 31.3443, 92.355, 40.1044, 82.6833, 106.15, -33.6467, 106.466, -36.6407, 75.5177, -88.2013, 86.0956, -94.5079, 76.0433 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="GameControl/Rooms/Room/RoomFurnitures/Lounge/Area2D"]
+collision_layer = 4
+collision_mask = 48
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="GameControl/Rooms/Room/RoomFurnitures/Lounge/Area2D/StaticBody2D"]
+position = Vector2( -0.187134, 1.48938 )
+rotation = 7.45058e-09
 polygon = PoolVector2Array( -85.4127, 14.5859, -36.0513, 5.08026, -36.0276, -11.5459, -28.5682, -10.6705, -28.5833, -37.9437, -28.2931, -51.2127, -19.6616, -54.1907, 42.3564, -54.8943, 54.1316, -55.5078, 76.9102, -105.382, 104.96, -104.086, 126.157, -53.7067, 126.995, -32.9884, 91.3907, 31.3443, 92.355, 40.1044, 82.6833, 106.15, -33.6467, 106.466, -36.6407, 75.5177, -88.2013, 86.0956, -94.5079, 76.0433 )
 
 [node name="FoodSpawningArea" type="Area2D" parent="GameControl/Rooms/Room"]
@@ -100,6 +110,9 @@ shape = SubResource( 1 )
 position = Vector2( -48.3947, 194.659 )
 
 [node name="Human" parent="GameControl" instance=ExtResource( 5 )]
-position = Vector2( -739.936, 237.012 )
+position = Vector2( -700, 230 )
+[connection signal="body_entered" from="GameControl/Rooms/Room/RoomFurnitures/Lounge/Area2D" to="GameControl/Cat" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="GameControl/Rooms/Room/RoomFurnitures/Lounge/Area2D" to="GameControl/Cat" method="_on_Area2D_body_exited"]
+[connection signal="cat_covered" from="GameControl/Cat" to="GameControl/Human" method="_on_Cat_cat_covered"]
 [connection signal="energy_changed" from="GameControl/Cat" to="UserInterface/GUI" method="_on_Cat_energy_changed"]
 [connection signal="food_changed" from="GameControl/Cat" to="UserInterface/GUI" method="_on_Cat_food_changed"]
