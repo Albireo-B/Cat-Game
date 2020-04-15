@@ -132,7 +132,6 @@ func _on_Area2D_body_entered(body):
 		emit_signal("cat_covered", true)
 		print("_on_Area2D_body_entered")
 
-
 func _on_Area2D_body_exited(body):
 	if body.name == "Cat":
 		emit_signal("cat_covered", false)
