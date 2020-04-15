@@ -8,8 +8,10 @@ onready var rooms = get_tree().get_current_scene().get_node("GameControl/Rooms")
 
 func _ready():
 	rand.randomize()
+	
 	for room_id in range (0, rooms.get_child_count()):
 		room_list.append(rooms.get_child(room_id))
+		
 	for room_node in room_list:
 		var room_rect = room_node.get_node("FoodSpawningArea/FoodSpawningRectangle")
 		var area_size = room_rect.shape.extents
@@ -17,8 +19,8 @@ func _ready():
 			var food = food_scene.instance()
 			var x = rand.randf_range(0 - area_size.x, area_size.x)
 			var y = rand.randf_range(0 - area_size.y, area_size.y)
-			food.transform.origin.x = room_rect.transform.origin.x + x
-			food.transform.origin.y = room_rect.transform.origin.y + y
+			food.transform.origin.x = room_node.transform.origin.x + x
+			food.transform.origin.y = room_node.transform.origin.y + y
 			get_tree().get_current_scene().get_node("GameControl/FoodElements").add_child(food)
 
 
