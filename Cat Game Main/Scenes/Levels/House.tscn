@@ -80,7 +80,7 @@ position = Vector2( 13.5483, 36.9162 )
 shape = SubResource( 1 )
 
 [node name="Bathroom" type="Node2D" parent="GameControl/Rooms"]
-position = Vector2( -1854.78, 7.42419 )
+position = Vector2( -1764.68, 84.2751 )
 __meta__ = {
 "_edit_group_": true
 }
