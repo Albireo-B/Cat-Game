@@ -105,7 +105,6 @@ func go_start_position() :
 
 func _on_Cat_cat_covered(cat_cov):
 	cat_covered = cat_cov
-	go_start_position()
 
 func collect_poop():
 	set_physics_process(false)
