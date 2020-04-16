@@ -18,8 +18,11 @@ func _ready():
 	
 #update human properties
 func control():
-	if !check_poops() and !cat_covered:
-		move_to(player.position)
+	if !check_poops():
+		if !cat_covered:
+			move_to(player.position)
+		else:
+			go_start_position()
 		
 
 
@@ -110,4 +113,3 @@ func go_start_position() :
 func _on_Cat_cat_covered(cat_cov):
 	print("_on_Cat_cat_covered")
 	cat_covered = cat_cov
-	go_start_position()
