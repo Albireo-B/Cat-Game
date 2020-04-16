@@ -12,12 +12,16 @@ export (float) var speed
 var is_cat_touched = false
 var anim = "idle"
 var cat_covered = false
-	
+
 #update human properties
 func control():
-	if !check_poops() and !cat_covered:
-		determine_velocity(player.position)
-		
+
+	if !check_poops():
+		if !cat_covered:
+			determine_velocity(player.position)
+		else:
+			go_start_position()
+
 
 func determine_velocity(target):
 	#set human velocity
@@ -28,24 +32,24 @@ func determine_velocity(target):
 	elif target.x < position.x:
 		set_dir(-1, 0)
 	elif target.x == position.x:
-		set_dir(0, 0)	
-	
+		set_dir(0, 0)
+
 #	                      Y
 	if target.y > position.y :
 		set_dir(1, 1)
-	
+
 	elif target.y < position.y:
 		set_dir(-1, 1)
 	elif target.y == position.y:
 		set_dir(0, 1)
-			
+
 	if next_direction.x != direction.x or next_direction.y != direction.y:
 		is_cat_touched = true
 
 	if OS.get_ticks_msec() < next_direction_time:
 		direction.x = next_direction.x
 		direction.y = next_direction.y
-	
+
 	velocity = direction * speed
 
 #	set animations
@@ -72,7 +76,7 @@ func set_dir(orientation_dir, axis=3):
 		if next_direction.y != orientation_dir:
 			next_direction.y = orientation_dir
 			next_direction_time = 	OS.get_ticks_msec() + react_time
-		
+
 
 #	Check if a poop exist, and if yes, got to it direction and return true. Otherwise return false
 func check_poops() :
@@ -82,19 +86,19 @@ func check_poops() :
 		return true
 	else :
 		return false
-	
+
 func _physics_process(delta):
 	control()
 	check_collision(move_and_slide(velocity))
 	sprite.play(anim)
-	
+
 func check_collision(body):
 	if get_slide_count() > 0:
 		if get_slide_collision(get_slide_count()-1).get_collider().name == "Cat":
 			is_cat_touched = true
 			set_physics_process(false)
 			get_tree().get_root().get_node("Level1/GameControl/Cat").game_over()
-			
+
 func go_start_position() :
 	var initial_position = Vector2(-700, 230)
 	determine_velocity(initial_position)
@@ -102,9 +106,7 @@ func go_start_position() :
 func _on_Cat_cat_covered(cat_cov):
 	cat_covered = cat_cov
 	go_start_position()
-	
-	
-	
+
 func collect_poop():
 	set_physics_process(false)
 	yield(get_tree().create_timer(10), "timeout")
