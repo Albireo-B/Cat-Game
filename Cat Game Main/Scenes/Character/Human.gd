@@ -57,12 +57,12 @@ func determine_velocity(target):
 		anim = "idle"
 		is_cat_touched = false
 	else :
-		if velocity.y < 0 :
-			anim = "walking_forward"
-		elif velocity.x > 0 :
+		if velocity.x > 0 :
 			anim = "walking_right"
 		elif velocity.x < 0:
 			anim = "walking_left"
+		elif velocity.y < 0 :
+			anim = "walking_forward"
 
 
 

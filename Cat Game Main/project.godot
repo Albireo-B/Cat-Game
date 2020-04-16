@@ -28,6 +28,7 @@ config/icon="res://icon.png"
 
 Main="*res://Autoload_scripts/Main.gd"
 Size="*res://Autoload_scripts/Size.gd"
+FoodSpawner="*res://Autoload_scripts/FoodSpawner.gd"
 
 [display]
 
