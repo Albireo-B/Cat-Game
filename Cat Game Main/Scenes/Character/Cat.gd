@@ -113,6 +113,7 @@ func instanciatePoop():
 	else :
 		new_poop.position.x = position.x - velocity.x/3.5
 		new_poop.position.y = position.y - velocity.y/3.5
+	new_poop.connect("poop_touched",get_node("../Human"),"collect_poop")
 	get_parent().get_node("Poops").add_child(new_poop)
 	
 func game_over():
@@ -130,7 +131,6 @@ func _on_QuitGameText_gui_input(event):
 func _on_Area2D_body_entered(body):
 	if body.name == "Cat":
 		emit_signal("cat_covered", true)
-		print("_on_Area2D_body_entered")
 
 func _on_Area2D_body_exited(body):
 	if body.name == "Cat":

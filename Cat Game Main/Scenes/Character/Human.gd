@@ -12,18 +12,14 @@ export (float) var speed
 var is_cat_touched = false
 var anim = "idle"
 var cat_covered = false
-
-func _ready():
-	pass
 	
 #update human properties
 func control():
 	if !check_poops() and !cat_covered:
-		move_to(player.position)
+		determine_velocity(player.position)
 		
 
-
-func move_to(target):
+func determine_velocity(target):
 	#set human velocity
 	velocity = Vector2()
 #	                  X
@@ -82,7 +78,7 @@ func set_dir(orientation_dir, axis=3):
 func check_poops() :
 	var all_poops = get_tree().get_root().get_node("Level1/GameControl/Poops");
 	if all_poops.get_child_count() != 0:
-		move_to(all_poops.get_child(0).position)
+		determine_velocity(all_poops.get_child(0).position)
 		return true
 	else :
 		return false
@@ -99,15 +95,17 @@ func check_collision(body):
 			set_physics_process(false)
 			get_tree().get_root().get_node("Level1/GameControl/Cat").game_over()
 			
-			
-			
 func go_start_position() :
 	var initial_position = Vector2(-700, 230)
-	move_to(initial_position)
-	print("go_start_position")
-
+	determine_velocity(initial_position)
 
 func _on_Cat_cat_covered(cat_cov):
-	print("_on_Cat_cat_covered")
 	cat_covered = cat_cov
 	go_start_position()
+	
+	
+	
+func collect_poop():
+	set_physics_process(false)
+	yield(get_tree().create_timer(10), "timeout")
+	set_physics_process(true)
