@@ -4,6 +4,7 @@ Trucs a corriger :
 
 	Lorsqu'on resize en horizontal, la caméra s'étend donc permet au joueur de voir plus = triche
 	lorsque lhuain ramasse la merde il est insensible au toucher du chat (chelou ca)
+	Changer le stoppage des process de lhumaion en yield d'animations.
 
 Trucs à faire :
 
