@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/Rooms/Room_n1.png" type="Texture" id=1]
 [ext_resource path="res://assets/Background.jpg" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/Rooms/Furnitures/loungeChairRelax.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/Levels/FoodSpawner.gd" type="Script" id=8]
 [ext_resource path="res://assets/Rooms/Hall_Right_Left_1.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/Levels/GameControl.gd" type="Script" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 346.838, 206.112 )
@@ -46,6 +47,7 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -69,11 +71,16 @@ __meta__ = {
 [node name="WallsArea" type="StaticBody2D" parent="GameControl/Corridors/Hall/Background"]
 position = Vector2( -384.957, -37.8369 )
 
-[node name="WallsPolygon" type="CollisionPolygon2D" parent="GameControl/Corridors/Hall/Background/WallsArea"]
+[node name="TopWallsPolygon" type="CollisionPolygon2D" parent="GameControl/Corridors/Hall/Background/WallsArea"]
 polygon = PoolVector2Array( -2380.69, 639.664, 3264.95, 650.153, 2854.36, 1761.93, -2234.3, 1794.16 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GameControl/Corridors/Hall/Background/WallsArea"]
+[node name="BotWallsPolygon2D" type="CollisionPolygon2D" parent="GameControl/Corridors/Hall/Background/WallsArea"]
 polygon = PoolVector2Array( -1883.37, 3023.46, 2381.35, 2996.32, 2273.81, 3323.68, -1804.02, 3306.31 )
+
+[node name="Area2D" type="Area2D" parent="GameControl/Corridors/Hall"]
+
+[node name="CollisionHall" type="CollisionPolygon2D" parent="GameControl/Corridors/Hall/Area2D"]
+polygon = PoolVector2Array( -1750.14, -337.303, -973.371, -335.943, -1016.9, -221.672, -1653.55, -216.231, -1718.85, -225.753 )
 
 [node name="Rooms" type="Node2D" parent="GameControl"]
 script = ExtResource( 8 )
