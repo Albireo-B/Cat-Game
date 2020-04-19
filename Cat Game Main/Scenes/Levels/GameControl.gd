@@ -8,6 +8,8 @@ enum ALL_ROOMS{
 	Livingroom
 }
 
+
+
 func _ready():
 	for numRoom in ALL_ROOMS.values():
 		if(numRoom < 1) :
