@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/Character/Cat.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Character/GUI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Character/Human.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/Rooms/bathroom.png" type="Texture" id=6]
+[ext_resource path="res://assets/Rooms/Bathroom1.png" type="Texture" id=6]
 [ext_resource path="res://assets/Rooms/Furnitures/loungeChairRelax.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/Levels/FoodSpawner.gd" type="Script" id=8]
 [ext_resource path="res://assets/Rooms/Hall_Right_Left_1.png" type="Texture" id=9]
@@ -109,7 +109,6 @@ scale = Vector2( 1, 0.991651 )
 polygon = PoolVector2Array( 57.9014, -172.576, 6.60889, 8.86307, -52.3895, 7.42224, 48.0331, -311.396, 737.097, -311.396, 879.145, 131.868, 879.125, 297.731, -92.4009, 301.25, -94.6215, 124.323, -83.3006, 94.676, -23.4077, 92.9182, -80.0671, 289.519, 868.688, 291.865, 739.972, -136.168, 740.389, -137.191, 692.384, -139.239, 679.443, -162.783, 677.773, -171.997, 284.526, -170.149, 268.337, -132.717, 116.163, -136.12, 98.5866, -171.85 )
 
 [node name="LivingArea2D" type="Area2D" parent="GameControl/Rooms/Livingroom"]
-scale = Vector2( 1, 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GameControl/Rooms/Livingroom/LivingArea2D"]
 polygon = PoolVector2Array( -812.522, 360.377, -722.888, 131.654, -630.162, 42.0193, -661.071, -75.4331, -574.527, -297.975, 611.636, -295.442, 848.849, 359.869 )
