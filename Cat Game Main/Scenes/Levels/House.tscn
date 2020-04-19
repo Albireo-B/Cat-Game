@@ -108,6 +108,12 @@ position = Vector2( -0.513351, 0 )
 scale = Vector2( 1, 0.991651 )
 polygon = PoolVector2Array( 57.9014, -172.576, 6.60889, 8.86307, -52.3895, 7.42224, 48.0331, -311.396, 737.097, -311.396, 879.145, 131.868, 879.125, 297.731, -92.4009, 301.25, -94.6215, 124.323, -83.3006, 94.676, -23.4077, 92.9182, -80.0671, 289.519, 868.688, 291.865, 739.972, -136.168, 740.389, -137.191, 692.384, -139.239, 679.443, -162.783, 677.773, -171.997, 284.526, -170.149, 268.337, -132.717, 116.163, -136.12, 98.5866, -171.85 )
 
+[node name="LivingArea2D" type="Area2D" parent="GameControl/Rooms/Livingroom"]
+scale = Vector2( 1, 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GameControl/Rooms/Livingroom/LivingArea2D"]
+polygon = PoolVector2Array( -812.522, 360.377, -722.888, 131.654, -630.162, 42.0193, -661.071, -75.4331, -574.527, -297.975, 611.636, -295.442, 848.849, 359.869 )
+
 [node name="RoomFurnitures" type="Node2D" parent="GameControl/Rooms/Livingroom"]
 
 [node name="Lounge" type="Sprite" parent="GameControl/Rooms/Livingroom/RoomFurnitures"]
@@ -132,11 +138,6 @@ collision_mask = 48
 position = Vector2( -0.187134, 1.48938 )
 rotation = 7.45058e-09
 polygon = PoolVector2Array( -85.4127, 14.5859, -36.0513, 5.08026, -36.0276, -11.5459, -28.5682, -10.6705, -28.5833, -37.9437, -28.2931, -51.2127, -19.6616, -54.1907, 42.3564, -54.8943, 54.1316, -55.5078, 76.9102, -105.382, 104.96, -104.086, 126.157, -53.7067, 126.995, -32.9884, 91.3907, 31.3443, 92.355, 40.1044, 82.6833, 106.15, -33.6467, 106.466, -36.6407, 75.5177, -88.2013, 86.0956, -94.5079, 76.0433 )
-
-[node name="LivingArea2D" type="Area2D" parent="GameControl/Rooms/Livingroom/RoomFurnitures"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GameControl/Rooms/Livingroom/RoomFurnitures/LivingArea2D"]
-polygon = PoolVector2Array( -812.522, 360.377, -722.888, 131.654, -630.162, 42.0193, -661.071, -75.4331, -574.527, -297.975, 611.636, -295.442, 848.849, 359.869 )
 
 [node name="FoodSpawningArea" type="Area2D" parent="GameControl/Rooms/Livingroom"]
 scale = Vector2( 1.76039, 1.4357 )
@@ -165,6 +166,12 @@ position = Vector2( -384.957, -37.8369 )
 [node name="WallsPolygon" type="CollisionPolygon2D" parent="GameControl/Rooms/Bathroom/Background/WallsArea"]
 polygon = PoolVector2Array( -2887.94, 3050.95, -2932.21, 1341.28, -1903.05, -3068.6, 3043.54, -3095.74, 3739.71, -323.237, 3365.89, -299.578, 3087.8, -1725.28, -1847.72, -1711.71, -2865.81, 3091.66, 4079.39, 3170.14, 3531.38, 616.785, 3988.09, 728.094, 4150.15, 1327.71, 4208.94, 3277.93 )
 
+[node name="BathArea2D" type="Area2D" parent="GameControl/Rooms/Bathroom/Background"]
+scale = Vector2( 6.97447, 8.55176 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GameControl/Rooms/Bathroom/Background/BathArea2D"]
+polygon = PoolVector2Array( -432.641, 361.535, -300.268, -202.528, 355.684, -202.528, 485.597, 362.441 )
+
 [node name="FoodSpawningArea" type="Area2D" parent="GameControl/Rooms/Bathroom"]
 position = Vector2( 28.9097, 80.0268 )
 scale = Vector2( 1.76039, 1.4357 )
@@ -174,11 +181,6 @@ __meta__ = {
 
 [node name="FoodSpawningRectangle" type="CollisionShape2D" parent="GameControl/Rooms/Bathroom/FoodSpawningArea"]
 shape = SubResource( 2 )
-
-[node name="BathArea2D" type="Area2D" parent="GameControl/Rooms/Bathroom"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GameControl/Rooms/Bathroom/BathArea2D"]
-polygon = PoolVector2Array( -432.641, 361.535, -300.268, -202.528, 355.684, -202.528, 485.597, 362.441 )
 
 [node name="Poops" type="Node2D" parent="GameControl"]
 
@@ -190,10 +192,10 @@ position = Vector2( -48.3947, 194.659 )
 [node name="Human" parent="GameControl" instance=ExtResource( 5 )]
 position = Vector2( -700, 230 )
 [connection signal="body_entered" from="GameControl/Corridors/Hall_Bath_Living/HallArea2D" to="GameControl" method="_on_HallArea2D_body_entered"]
+[connection signal="body_entered" from="GameControl/Rooms/Livingroom/LivingArea2D" to="GameControl" method="_on_LivingArea2D_body_entered"]
 [connection signal="body_entered" from="GameControl/Rooms/Livingroom/RoomFurnitures/Lounge/LoungeArea" to="GameControl/Cat" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="GameControl/Rooms/Livingroom/RoomFurnitures/Lounge/LoungeArea" to="GameControl/Cat" method="_on_Area2D_body_exited"]
-[connection signal="body_entered" from="GameControl/Rooms/Livingroom/RoomFurnitures/LivingArea2D" to="GameControl" method="_on_LivingArea2D_body_entered"]
-[connection signal="body_entered" from="GameControl/Rooms/Bathroom/BathArea2D" to="GameControl" method="_on_BathArea2D_body_entered"]
+[connection signal="body_entered" from="GameControl/Rooms/Bathroom/Background/BathArea2D" to="GameControl" method="_on_BathArea2D_body_entered"]
 [connection signal="cat_covered" from="GameControl/Cat" to="GameControl/Human" method="_on_Cat_cat_covered"]
 [connection signal="energy_changed" from="GameControl/Cat" to="UserInterface/GUI" method="_on_Cat_energy_changed"]
 [connection signal="food_changed" from="GameControl/Cat" to="UserInterface/GUI" method="_on_Cat_food_changed"]
