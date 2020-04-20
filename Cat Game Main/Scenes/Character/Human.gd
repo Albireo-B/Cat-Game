@@ -89,7 +89,7 @@ func check_poops() :
 
 func _physics_process(delta):
 	control()
-	check_collision(move_and_slide(velocity))
+	check_collision(move_and_slide((player.position-position).normalized() * speed))
 	sprite.play(anim)
 
 func check_collision(body):
