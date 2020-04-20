@@ -88,11 +88,12 @@ func check_poops() :
 		return false
 
 func _physics_process(delta):
-	control()
-	check_collision(move_and_slide((player.position-position).normalized() * speed))
-	sprite.play(anim)
+#	control()
+	move_and_slide((player.position-position).normalized() * speed)
+	check_collision()
+#	sprite.play(anim)
 
-func check_collision(body):
+func check_collision():
 	if get_slide_count() > 0:
 		if get_slide_collision(get_slide_count()-1).get_collider().name == "Cat":
 			is_cat_touched = true
