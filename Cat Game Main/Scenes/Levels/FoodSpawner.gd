@@ -1,10 +1,11 @@
 extends Node2D
 
 
-onready var room_list : Array
-onready var collider_list : Array
+onready var room_list = Array()
+onready var collider_list = Array()
 onready var rand = RandomNumberGenerator.new()
 onready var food_scene = preload("res://Scenes/Elements/Food.tscn")
+
 
 func _ready():
 	rand.randomize()
@@ -21,4 +22,4 @@ func _ready():
 			var y = rand.randf_range(0 - area_size.y, area_size.y)
 			food.transform.origin.x = room_node.transform.origin.x + x
 			food.transform.origin.y = room_node.transform.origin.y + y
-			get_node("../FoodElements").add_child(food)
+			get_node("../../GameControl/FoodElements").add_child(food)

@@ -128,10 +128,10 @@ func _on_QuitGameText_gui_input(event):
 		if event.is_pressed():
 			get_tree().quit()
 
-func _on_Area2D_body_entered(body):
+func _on_LoungeArea_body_entered(body):
 	if body.name == "Cat":
 		emit_signal("cat_covered", true)
 
-func _on_Area2D_body_exited(body):
+func _on_LoungeArea_body_exited(body):
 	if body.name == "Cat":
 		emit_signal("cat_covered", false)

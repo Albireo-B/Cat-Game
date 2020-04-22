@@ -1,109 +1,76 @@
 extends KinematicBody2D
 
-onready var player = get_tree().get_root().get_node("Level1/GameControl/Cat")
-onready var sprite = get_node("Body")
+onready var player = $"../Cat"
+onready var sprite = $"Body"
+onready var nav_2D = $"../../HouseControl/Navigation2D"
 
-var react_time = 400
-var velocity = Vector2(0,0)
-var direction = Vector2(0,0)
-var next_direction = Vector2(0,0)
-var next_direction_time = 0
 export (float) var speed
+
+var move_distance
+var new_path = PoolVector2Array()
+var path = PoolVector2Array()
 var is_cat_touched = false
 var anim = "idle"
 var cat_covered = false
+var target_position
+var initial_position = Vector2(-700,230)
 
 #update human properties
 func control():
-
+	
 	if !check_poops():
 		if !cat_covered:
-			determine_velocity(player.position)
+			target_position = player.position
 		else:
-			go_start_position()
+			target_position = initial_position
+	new_path = nav_2D.get_simple_path(position,target_position)
+	path = new_path
+	set_animations(target_position)
 
-
-func determine_velocity(target):
-	#set human velocity
-	velocity = Vector2()
-#	                  X
-	if target.x > position.x:
-		set_dir(1, 0)
-	elif target.x < position.x:
-		set_dir(-1, 0)
-	elif target.x == position.x:
-		set_dir(0, 0)
-
-#	                      Y
-	if target.y > position.y :
-		set_dir(1, 1)
-
-	elif target.y < position.y:
-		set_dir(-1, 1)
-	elif target.y == position.y:
-		set_dir(0, 1)
-
-	if next_direction.x != direction.x or next_direction.y != direction.y:
-		is_cat_touched = true
-
-	if OS.get_ticks_msec() < next_direction_time:
-		direction.x = next_direction.x
-		direction.y = next_direction.y
-
-	velocity = direction * speed
-
-#	set animations
-	if (velocity.x == 0 and velocity.y == 0):
+func set_animations(target_position):
+	var diff = position - target_position
+	if (diff.x == 0 and diff.y == 0):
 		anim = "idle"
-		is_cat_touched = false
 	else :
-		if velocity.x > 0 :
-			anim = "walking_right"
-		elif velocity.x < 0:
-			anim = "walking_left"
-		elif velocity.y < 0 :
+		if diff.x >= -80 and diff.x <= 80 and diff.y >0 :
 			anim = "walking_forward"
+		elif diff.x > 0:
+			anim = "walking_left"
+		elif diff.x < 0:
+			anim = "walking_right"
 
 
-
-
-func set_dir(orientation_dir, axis=3):
-	if axis == 0:
-		if next_direction.x != orientation_dir:
-			next_direction.x = orientation_dir
-			next_direction_time = 	OS.get_ticks_msec() + react_time
-	elif axis == 1:
-		if next_direction.y != orientation_dir:
-			next_direction.y = orientation_dir
-			next_direction_time = 	OS.get_ticks_msec() + react_time
-
-
+	
 #	Check if a poop exist, and if yes, got to it direction and return true. Otherwise return false
 func check_poops() :
-	var all_poops = get_tree().get_root().get_node("Level1/GameControl/Poops");
+	var all_poops = $"../Poops"
 	if all_poops.get_child_count() != 0:
-		determine_velocity(all_poops.get_child(0).position)
+		target_position = all_poops.get_child(0).position
 		return true
 	else :
 		return false
 
 func _physics_process(delta):
-#	control()
-	move_and_slide((player.position-position).normalized() * speed)
-	check_collision()
-#	sprite.play(anim)
+	control()
+	if path.size() != 0:
+		move_distance = speed * delta
+		move_along_path(move_distance)
+	sprite.play(anim)
 
-func check_collision():
-	if get_slide_count() > 0:
-		if get_slide_collision(get_slide_count()-1).get_collider().name == "Cat":
-			is_cat_touched = true
-			set_physics_process(false)
-			get_tree().get_root().get_node("Level1/GameControl/Cat").game_over()
-
-func go_start_position() :
-	var initial_position = Vector2(-700, 230)
-	determine_velocity(initial_position)
-
+func move_along_path(distance):
+	var start_point = position
+	for i in range(path.size()):
+		var distance_to_next = start_point.distance_to(path[0])
+		if distance <= distance_to_next and distance >= 0.0 :
+			position = start_point.linear_interpolate(path[0],distance/distance_to_next)
+			break
+		elif distance < 0:
+			position = path[0]
+			break
+		distance -= distance_to_next
+		start_point = path[0]
+		path.remove(0)
+	
 func _on_Cat_cat_covered(cat_cov):
 	cat_covered = cat_cov
 
@@ -111,3 +78,9 @@ func collect_poop():
 	set_physics_process(false)
 	yield(get_tree().create_timer(10), "timeout")
 	set_physics_process(true)
+
+func _on_HumanArea_body_entered(body):
+		if body.name == "Cat":
+			is_cat_touched = true
+			set_physics_process(false)
+			$"../Cat".game_over()
