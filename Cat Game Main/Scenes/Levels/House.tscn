@@ -58,3 +58,5 @@ position = Vector2( -94.0165, 85.4875 )
 [connection signal="food_changed" from="GameControl/Cat" to="UserInterface/GUI" method="_on_Cat_food_changed"]
 
 [editable path="HouseControl"]
+
+[editable path="HouseControl/Rooms/Livingroom"]

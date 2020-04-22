@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/Rooms/Bathroom1.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 208.838, 194.091 )
+
+[node name="Bathroom" type="Node2D"]
+position = Vector2( -1848.22, 6.60495 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Background" type="Sprite" parent="."]
+scale = Vector2( 0.14338, 0.116935 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="WallsArea" type="StaticBody2D" parent="Background"]
+position = Vector2( -384.957, -37.8369 )
+
+[node name="WallsPolygon" type="CollisionPolygon2D" parent="Background/WallsArea"]
+polygon = PoolVector2Array( -3098.92, 3485.93, -2932.21, 1341.28, -1903.05, -3068.6, 3043.54, -3095.74, 3739.71, -323.237, 3365.89, -299.578, 3120.02, -1334.87, 3042.48, -1326.94, 2948.77, -1378.45, 2932.62, -1529, 2819.52, -1552.77, 2793.5, -1714.52, 2260.4, -1695.04, 2251.37, -1567.77, 2136.29, -1576.07, 2134.03, -1717.17, 1750.44, -1728.24, 1750.44, -1576.07, 1689.51, -1581.6, 1652.25, -1720.3, 1009.34, -1678.5, 984.993, -1511.29, 848.618, -1481.43, 721.986, -1535.17, 702.7, -1696.14, -252.114, -1684.47, -227.763, -1642.67, -91.3887, -1493.37, -193.669, -1493.37, -310.562, -1618.78, -383.618, -1463.51, -442.064, -1463.51, -393.359, -1612.81, -500.51, -1535.17, -393.508, -1686.89, -612.531, -1684.47, -612.15, -1797.45, -943.726, -1803.91, -933.876, -1685.86, -1075.23, -1684.47, -1119.06, -2066.68, -1917.83, -2084.59, -2219.8, -985.752, -2104.99, -547.254, -2132.13, -424.387, -2283.12, -400.499, -2322.08, -167.592, -2166.23, -161.62, -1976.28, 602.792, -2073.69, 1134.3, -2455.54, 1156.01, -2865.81, 3091.66, 4079.39, 3170.14, 3817.55, 1899.27, 3492.28, 1893.88, 3421.94, 1435.75, 3572.81, 809.807, 3531.38, 616.785, 3988.09, 728.094, 4150.15, 1327.71, 4208.94, 3277.93 )
+
+[node name="BathArea2D" type="Area2D" parent="."]
+scale = Vector2( 1, 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BathArea2D"]
+polygon = PoolVector2Array( -432.641, 361.535, -300.268, -202.528, 355.684, -202.528, 485.597, 362.441 )
+
+[node name="FoodSpawningArea" type="Area2D" parent="."]
+position = Vector2( 28.9097, 80.0268 )
+scale = Vector2( 1.76039, 1.4357 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="FoodSpawningRectangle" type="CollisionShape2D" parent="FoodSpawningArea"]
+shape = SubResource( 1 )

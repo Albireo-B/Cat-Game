@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/Rooms/Hall_Right_Left_1.png" type="Texture" id=1]
+
+[node name="Hall_Bath_Living" type="Node2D"]
+position = Vector2( 306.061, 296.549 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( -1376.1, -513.985 )
+scale = Vector2( 0.123057, 0.10036 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="WallsArea" type="StaticBody2D" parent="Background"]
+position = Vector2( -384.957, -37.8369 )
+
+[node name="TopWallsPolygon" type="CollisionPolygon2D" parent="Background/WallsArea"]
+polygon = PoolVector2Array( -2380.69, 639.664, 3264.95, 650.153, 2854.36, 1761.93, -2234.3, 1794.16 )
+
+[node name="BotWallsPolygon2D" type="CollisionPolygon2D" parent="Background/WallsArea"]
+polygon = PoolVector2Array( -1883.37, 3023.46, 2381.35, 2996.32, 2273.81, 3323.68, -1804.02, 3306.31 )
+
+[node name="HallArea2D" type="Area2D" parent="."]
+
+[node name="CollisionHall" type="CollisionPolygon2D" parent="HallArea2D"]
+polygon = PoolVector2Array( -1706.04, -320.189, -1023.77, -323.363, -1060.26, -228.163, -1658.16, -224.771, -1687, -228.163 )
