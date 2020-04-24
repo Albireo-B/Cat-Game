@@ -20,11 +20,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tween" type="Tween" parent="."]
+[node name="EnergyTween" type="Tween" parent="."]
+
+[node name="FoodTween" type="Tween" parent="."]
 
 [node name="Bars" type="VBoxContainer" parent="."]
-margin_right = 1024.0
-margin_bottom = 599.0
+margin_right = 1280.0
+margin_bottom = 719.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

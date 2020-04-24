@@ -13,7 +13,7 @@ export (float) var speed
 
 const max_energy = 100
 const max_food = 100
-const defecate_food_amount = 75
+const defecate_food_amount = 50
 
 var energy
 var food = 0
@@ -67,9 +67,6 @@ func control():
 		if Input.is_action_just_pressed("defecating"):
 			food -= defecate_food_amount
 			instanciatePoop()
-	#emit signals for energy and food bars
-	emit_signal("energy_changed",energy)
-	emit_signal("food_changed",food)
 	#set movement limitations
 	if energy <= 0 or is_exhausted:
 		can_move = false
@@ -135,3 +132,10 @@ func _on_LoungeArea_body_entered(body):
 func _on_LoungeArea_body_exited(body):
 	if body.name == "Cat":
 		emit_signal("cat_covered", false)
+		
+#emit signals for energy and food bars
+func _on_FoodTween_tween_completed(object, key):
+	emit_signal("food_changed",food)
+
+func _on_EnergyTween_tween_completed(object, key):
+	emit_signal("energy_changed",energy)
