@@ -51,13 +51,19 @@ position = Vector2( 382.418, 36.2096 )
 
 [node name="Human" parent="GameControl" instance=ExtResource( 5 )]
 position = Vector2( -94.0165, 85.4875 )
+
 [connection signal="body_entered" from="HouseControl/Rooms/Livingroom/RoomFurnitures/Right_Lounge/LoungeArea" to="GameControl/Cat" method="_on_LoungeArea_body_entered"]
 [connection signal="body_exited" from="HouseControl/Rooms/Livingroom/RoomFurnitures/Right_Lounge/LoungeArea" to="GameControl/Cat" method="_on_LoungeArea_body_exited"]
 [connection signal="body_entered" from="HouseControl/Rooms/Livingroom/RoomFurnitures/Big_Bottom_Lounge/BigLoungeArea" to="GameControl/Cat" method="_on_LoungeArea_body_entered"]
 [connection signal="body_exited" from="HouseControl/Rooms/Livingroom/RoomFurnitures/Big_Bottom_Lounge/BigLoungeArea" to="GameControl/Cat" method="_on_LoungeArea_body_exited"]
+[connection signal="tween_completed" from="UserInterface/GUI/EnergyTween" to="GameControl/Cat" method="_on_EnergyTween_tween_completed"]
+[connection signal="tween_completed" from="UserInterface/GUI/FoodTween" to="GameControl/Cat" method="_on_FoodTween_tween_completed"]
+
 [connection signal="cat_covered" from="GameControl/Cat" to="GameControl/Human" method="_on_Cat_cat_covered"]
 [connection signal="energy_changed" from="GameControl/Cat" to="UserInterface/GUI" method="_on_Cat_energy_changed"]
 [connection signal="food_changed" from="GameControl/Cat" to="UserInterface/GUI" method="_on_Cat_food_changed"]
+
+[editable path="UserInterface/GUI"]
 
 [editable path="HouseControl"]
 
