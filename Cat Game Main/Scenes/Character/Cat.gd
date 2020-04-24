@@ -13,7 +13,7 @@ export (float) var speed
 
 const max_energy = 100
 const max_food = 100
-const defecate_food_amount = 75
+const defecate_food_amount = 40
 
 var energy
 var food = 0
@@ -135,3 +135,4 @@ func _on_LoungeArea_body_entered(body):
 func _on_LoungeArea_body_exited(body):
 	if body.name == "Cat":
 		emit_signal("cat_covered", false)
+
