@@ -1,22 +1,20 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/Rooms/Furnitures/loungeChairRelax.png" type="Texture" id=1]
-[ext_resource path="res://assets/Rooms/Room_n1.png" type="Texture" id=2]
+[ext_resource path="res://assets/Rooms/Living_Room_2.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 346.838, 206.112 )
 
 [node name="Livingroom" type="Node2D"]
+position = Vector2( 21.0524, -64.2652 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Background" type="Sprite" parent="."]
-scale = Vector2( 1.76039, 1.4357 )
+scale = Vector2( 0.262252, 0.213882 )
 texture = ExtResource( 2 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="WallsArea" type="StaticBody2D" parent="Background"]
 position = Vector2( -384.957, -37.8369 )
@@ -24,8 +22,8 @@ collision_layer = 2
 collision_mask = 57
 
 [node name="WallsPolygon" type="CollisionPolygon2D" parent="Background/WallsArea"]
-position = Vector2( -0.513351, 0 )
-scale = Vector2( 1, 0.991651 )
+position = Vector2( -2201.07, -180.589 )
+scale = Vector2( 6.72381, 6.66767 )
 polygon = PoolVector2Array( 57.9014, -172.576, 6.60889, 8.86307, -52.3895, 7.42224, 48.0331, -311.396, 737.097, -311.396, 879.145, 131.868, 879.125, 297.731, -92.4009, 301.25, -94.6215, 124.323, -83.3006, 94.676, -23.4077, 92.9182, -80.0671, 289.519, 868.688, 291.865, 739.972, -136.168, 740.389, -137.191, 692.384, -139.239, 679.443, -162.783, 677.773, -171.997, 284.526, -170.149, 268.337, -132.717, 116.163, -136.12, 98.5866, -171.85 )
 
 [node name="LivingArea2D" type="Area2D" parent="."]
@@ -42,29 +40,78 @@ shape = SubResource( 1 )
 
 [node name="RoomFurnitures" type="Node2D" parent="."]
 
-[node name="Lounge" type="Node2D" parent="RoomFurnitures"]
+[node name="Right_Lounge" type="Node2D" parent="RoomFurnitures"]
 position = Vector2( 661.143, 0 )
 
-[node name="LoungeSprite" type="Sprite" parent="RoomFurnitures/Lounge"]
+[node name="LoungeSprite" type="Sprite" parent="RoomFurnitures/Right_Lounge"]
 rotation = -0.120816
 scale = Vector2( 0.644314, 0.666547 )
 texture = ExtResource( 1 )
 
-[node name="LoungeBody" type="StaticBody2D" parent="RoomFurnitures/Lounge/LoungeSprite"]
+[node name="LoungeBody" type="StaticBody2D" parent="RoomFurnitures/Right_Lounge/LoungeSprite"]
 rotation = 7.45058e-09
-scale = Vector2( 1, 1 )
 collision_layer = 4
 collision_mask = 48
 
-[node name="LoungePolygon" type="CollisionPolygon2D" parent="RoomFurnitures/Lounge/LoungeSprite/LoungeBody"]
+[node name="LoungePolygon" type="CollisionPolygon2D" parent="RoomFurnitures/Right_Lounge/LoungeSprite/LoungeBody"]
 rotation = 7.45058e-09
 polygon = PoolVector2Array( -85.4127, 14.5859, -36.0513, 5.08026, -36.0276, -11.5459, -28.5682, -10.6705, -28.5833, -37.9437, -28.2931, -51.2127, -19.6616, -54.1907, 42.3564, -54.8943, 54.1316, -55.5078, 76.9102, -105.382, 104.96, -104.086, 126.157, -53.7067, 126.995, -32.9884, 91.3907, 31.3443, 92.355, 40.1044, 82.6833, 106.15, -33.6467, 106.466, -36.6407, 75.5177, -88.2013, 86.0956, -94.5079, 76.0433 )
 
-[node name="LoungeArea" type="Area2D" parent="RoomFurnitures/Lounge"]
+[node name="LoungeArea" type="Area2D" parent="RoomFurnitures/Right_Lounge"]
 rotation = -0.120816
 scale = Vector2( 0.644314, 0.666547 )
 collision_layer = 4
 collision_mask = 33
 
-[node name="LoungePolygon" type="CollisionPolygon2D" parent="RoomFurnitures/Lounge/LoungeArea"]
+[node name="LoungePolygon" type="CollisionPolygon2D" parent="RoomFurnitures/Right_Lounge/LoungeArea"]
 polygon = PoolVector2Array( -85.4127, 14.5859, -36.0513, 5.08026, -36.0276, -11.5459, -28.5682, -10.6705, -28.5833, -37.9437, -28.2931, -51.2127, -19.6616, -54.1907, 42.3564, -54.8943, 54.1316, -55.5078, 76.9102, -105.382, 104.96, -104.086, 126.157, -53.7067, 126.995, -32.9884, 91.3907, 31.3443, 92.355, 40.1044, 82.6833, 106.15, -33.6467, 106.466, -36.6407, 75.5177, -88.2013, 86.0956, -94.5079, 76.0433 )
+
+[node name="Big_Bottom_Lounge" type="Node2D" parent="RoomFurnitures"]
+position = Vector2( 661.143, 0 )
+
+[node name="BigLoungeBody" type="StaticBody2D" parent="RoomFurnitures/Big_Bottom_Lounge"]
+position = Vector2( -979.594, 195.143 )
+rotation = -0.120816
+scale = Vector2( 0.644314, 0.666547 )
+collision_layer = 4
+collision_mask = 48
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomFurnitures/Big_Bottom_Lounge/BigLoungeBody"]
+polygon = PoolVector2Array( -476.76, 175.456, -507.626, 35.1167, -427.528, -103.918, -368.278, -93.0587, -357.966, -62.5521, 182.6, -6.92493, 186.468, -37.7205, 255.191, -21.8429, 262.563, 119.639, 222.613, 253.626, 181.94, 254.656, 185.103, 236.93, -440.785, 167.097, -445.345, 181.039 )
+
+[node name="BigLoungeArea" type="Area2D" parent="RoomFurnitures/Big_Bottom_Lounge"]
+rotation = -0.120816
+scale = Vector2( 0.644314, 0.666547 )
+collision_layer = 4
+collision_mask = 33
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="RoomFurnitures/Big_Bottom_Lounge/BigLoungeArea"]
+position = Vector2( -1545.79, 113.507 )
+rotation = 2.23517e-08
+scale = Vector2( 1, 1 )
+polygon = PoolVector2Array( -476.76, 175.456, -507.626, 35.1167, -427.528, -103.918, -368.278, -93.0587, -357.966, -62.5521, 182.6, -6.92493, 186.468, -37.7205, 255.191, -21.8429, 258.365, 97.6684, 222.613, 253.626, 181.94, 254.656, 185.103, 236.93, -440.785, 167.097, -445.345, 181.039 )
+
+[node name="Little_Bottom_Lounge" type="Node2D" parent="RoomFurnitures"]
+position = Vector2( 661.143, 0 )
+
+[node name="Little_Bot_LoungeBody" type="StaticBody2D" parent="RoomFurnitures/Little_Bottom_Lounge"]
+position = Vector2( -979.594, 195.143 )
+rotation = -0.120816
+scale = Vector2( 0.644314, 0.666547 )
+collision_layer = 4
+collision_mask = 48
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomFurnitures/Little_Bottom_Lounge/Little_Bot_LoungeBody"]
+polygon = PoolVector2Array( 274.46, 255.28, 262.053, 77.6274, 264.577, -11.5734, 327.65, -6.968, 330.237, 18.5067, 525.508, 30.236, 526.464, -0.416336, 594.548, 10.3706, 608.176, 132.231, 585.511, 266.614, 562.701, 263.937, 562.619, 241.553, 291.139, 237.66 )
+
+[node name="Little_Bot_LoungeArea" type="Area2D" parent="RoomFurnitures/Little_Bottom_Lounge"]
+rotation = -0.120816
+scale = Vector2( 0.644314, 0.666547 )
+collision_layer = 4
+collision_mask = 33
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="RoomFurnitures/Little_Bottom_Lounge/Little_Bot_LoungeArea"]
+position = Vector2( -1545.79, 113.507 )
+rotation = 2.23517e-08
+scale = Vector2( 1, 1 )
+polygon = PoolVector2Array( 274.46, 255.28, 262.053, 77.6274, 264.577, -11.5734, 327.65, -6.968, 330.237, 18.5067, 525.508, 30.236, 526.464, -0.416336, 594.548, 10.3706, 608.176, 132.231, 585.511, 266.614, 562.701, 263.937, 562.619, 241.553, 291.139, 237.66 )

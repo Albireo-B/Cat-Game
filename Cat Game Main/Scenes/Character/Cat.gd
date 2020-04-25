@@ -13,7 +13,7 @@ export (float) var speed
 
 const max_energy = 100
 const max_food = 100
-const defecate_food_amount = 50
+const defecate_food_amount = 40
 
 var energy
 var food = 0
@@ -25,7 +25,7 @@ var can_shit = true
 func _ready():
 	energy = max_energy
 	food = max_food/2
-	
+
 #update cat properties
 func control():
 	var is_moving = false
@@ -94,7 +94,7 @@ func control():
 		else:
 			anim = "walking_forward"
 
-	
+
 func _physics_process(delta):
 	control()
 	if can_move:
@@ -112,7 +112,7 @@ func instanciatePoop():
 		new_poop.position.y = position.y - velocity.y/3.5
 	new_poop.connect("poop_touched",get_node("../Human"),"collect_poop")
 	get_parent().get_node("Poops").add_child(new_poop)
-	
+
 func game_over():
 	set_physics_process(false)
 	get_node("GameOverAnimations").play("GameOverFadingAndText")
@@ -120,7 +120,7 @@ func game_over():
 func _on_RetryText_gui_input(event):
 		if event.is_pressed():
 			get_tree().reload_current_scene()
-			
+
 func _on_QuitGameText_gui_input(event):
 		if event.is_pressed():
 			get_tree().quit()
@@ -132,7 +132,7 @@ func _on_LoungeArea_body_entered(body):
 func _on_LoungeArea_body_exited(body):
 	if body.name == "Cat":
 		emit_signal("cat_covered", false)
-		
+
 #emit signals for energy and food bars
 func _on_FoodTween_tween_completed(object, key):
 	emit_signal("food_changed",food)
