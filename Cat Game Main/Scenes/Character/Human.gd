@@ -75,6 +75,7 @@ func _on_Cat_cat_covered(cat_cov):
 	cat_covered = cat_cov
 
 func collect_poop():
+	sprite.play("poop_collecting")
 	set_physics_process(false)
 	yield(get_tree().create_timer(10), "timeout")
 	set_physics_process(true)

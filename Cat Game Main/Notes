@@ -2,11 +2,13 @@
 
 Trucs a corriger :
 
-	Lorsqu'on resize en horizontal, la caméra s'étend donc permet au joueur de voir plus = triche
 	lorsque lhuain ramasse la merde il est insensible au toucher du chat (chelou ca)
 	Changer le stoppage des process de lhumaion en yield d'animations.
 
 Trucs à faire :
 
-	Faire en sorte que mur ou pièce devienne opaque ( si mur le découper séparement)
-	Ajouter Area2D avec siganux body entered et exit pour check si le chat est dedans (activer/désactiver opacité)
+	Faire un menu (jouer, liste des touches, quitter)
+	Faire le fait de gagner (sortir par la bonne porte)
+	Ajouter des pièces
+	Ajouter l'animation de l'humain qui ramasse le caca
+	Ajouter le fait que l'humain se met sur le canapé quand le chat est covered
