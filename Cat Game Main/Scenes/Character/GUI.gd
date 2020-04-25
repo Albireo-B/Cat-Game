@@ -32,7 +32,6 @@ func _on_Cat_food_changed(cat_food):
 func update_energy(new_value):
 	energy_tween.interpolate_property(energyBar,"value",energyBar.value,new_value,0.001,Tween.TRANS_LINEAR)
 	energy_tween.start()
-	energyBar.tint_progress = lerp(Color.red, Color.yellow, energyBar.get_as_ratio())
 
 	#Animating the energy bar when the energy is low
 	energy_time += 1
