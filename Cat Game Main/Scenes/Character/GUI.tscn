@@ -22,6 +22,10 @@ __meta__ = {
 
 [node name="EnergyTween" type="Tween" parent="."]
 
+[node name="EnergyTweenLow" type="Tween" parent="."]
+
+[node name="FoodTweenLow" type="Tween" parent="."]
+
 [node name="FoodTween" type="Tween" parent="."]
 
 [node name="Bars" type="VBoxContainer" parent="."]
