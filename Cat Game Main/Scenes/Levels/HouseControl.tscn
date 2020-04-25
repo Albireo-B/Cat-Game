@@ -36,7 +36,6 @@ __meta__ = {
 }
 
 [node name="Livingroom" parent="Rooms" instance=ExtResource( 3 )]
-position = Vector2( 0, 0 )
 
 [node name="Bathroom" parent="Rooms" instance=ExtResource( 2 )]
 
