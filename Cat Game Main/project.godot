@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Cat Game Main"
-run/main_scene="res://Scenes/Levels/House.tscn"
+run/main_scene="res://Scenes/Other/TitleScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -80,4 +80,5 @@ defecating={
 [rendering]
 
 quality/2d/use_pixel_snap=true
+environment/default_clear_color=Color( 0.14902, 0.192157, 0.219608, 1 )
 environment/default_environment="res://default_env.tres"
