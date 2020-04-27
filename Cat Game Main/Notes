@@ -5,6 +5,12 @@ Trucs a corriger :
 	lorsque lhuain ramasse la merde il est insensible au toucher du chat (chelou ca)
 	Changer le stoppage des process de lhumaion en yield d'animations.
 
+	corriger urgent : 
+		
+		l'humaon passe a travers la table
+		l'humain suit le chat quand ce dernier va sur le canapé
+
+
 Trucs à faire :
 
 	Faire un menu (jouer, liste des touches, quitter)
@@ -12,3 +18,5 @@ Trucs à faire :
 	Ajouter des pièces
 	Ajouter l'animation de l'humain qui ramasse le caca
 	Ajouter le fait que l'humain se met sur le canapé quand le chat est covered
+
+
