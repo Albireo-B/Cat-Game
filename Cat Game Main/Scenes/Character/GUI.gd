@@ -42,7 +42,7 @@ func update_energy(new_value):
 			energy_tween_low.interpolate_property(energyText,"modulate",energyText.modulate,Color(1,1,1,1),0.75,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
 		else:
 			energy_flashed = true
-			energy_tween_low.interpolate_property(energyText,"modulate",energyText.modulate, Color.red,0.75,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
+			energy_tween_low.interpolate_property(energyText,"modulate",energyText.modulate, Color("#7a00ff"),0.75,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
 		energy_tween_low.start()
 	elif energy_flashed and energy_time > 30:
 		energy_flashed = false
