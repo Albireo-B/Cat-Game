@@ -115,7 +115,7 @@ func instanciatePoop():
 
 func game_over():
 	set_physics_process(false)
-	get_node("GameOverAnimations").play("GameOverFadingAndText")
+	$CanvasLayer/FadeIn.fade_in()
 
 func _on_RetryText_gui_input(event):
 		if event.is_pressed():
@@ -139,3 +139,7 @@ func _on_FoodTween_tween_completed(object, key):
 
 func _on_EnergyTween_tween_completed(object, key):
 	emit_signal("energy_changed",energy)
+
+
+func _on_FadeIn_fade_finished():
+	get_tree().reload_current_scene()

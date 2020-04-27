@@ -1,0 +1,103 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Fonts/DynamicFonts/MontSerrat_48.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scenes/Other/Fade_In/FadeIn.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Levels/PauseScene.gd" type="Script" id=3]
+[ext_resource path="res://Fonts/Fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+font_data = ExtResource( 4 )
+
+[node name="PauseScreen" type="CanvasLayer"]
+pause_mode = 2
+layer = 3
+script = ExtResource( 3 )
+
+[node name="PauseMenu" type="ColorRect" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -250.0
+margin_top = -360.0
+margin_right = 450.0
+margin_bottom = 360.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+color = Color( 0.172549, 0.227451, 0.239216, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -237.0
+margin_top = -300.0
+margin_right = 237.0
+margin_bottom = 300.0
+mouse_filter = 2
+custom_constants/separation = 130
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PauseMenu/VBoxContainer"]
+margin_right = 474.0
+margin_bottom = 75.0
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 1 )
+text = "Game Paused"
+align = 1
+uppercase = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/VBoxContainer"]
+margin_top = 205.0
+margin_right = 474.0
+margin_bottom = 523.0
+mouse_filter = 2
+custom_constants/separation = 60
+
+[node name="ResumeButton" type="Button" parent="PauseMenu/VBoxContainer/VBoxContainer"]
+margin_right = 474.0
+margin_bottom = 66.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Resume"
+
+[node name="ControlsButton" type="Button" parent="PauseMenu/VBoxContainer/VBoxContainer"]
+margin_top = 126.0
+margin_right = 474.0
+margin_bottom = 192.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Controls"
+
+[node name="MenuButton" type="Button" parent="PauseMenu/VBoxContainer/VBoxContainer"]
+margin_top = 252.0
+margin_right = 474.0
+margin_bottom = 318.0
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Back to menu"
+
+[node name="FadeIn" parent="." instance=ExtResource( 2 )]
+margin_top = -498.493
+margin_bottom = 1781.51
+mouse_filter = 2
+[connection signal="pressed" from="PauseMenu/VBoxContainer/VBoxContainer/ResumeButton" to="." method="_on_ResumeButton_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/VBoxContainer/ControlsButton" to="." method="_on_ControlsButton_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/VBoxContainer/MenuButton" to="." method="_on_MenuButton_pressed"]
+[connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]
+
+[editable path="FadeIn"]
