@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/GUI/food_bar_empty_bigger.png" type="Texture" id=3]
 [ext_resource path="res://assets/GUI/energy_bar_fill_deg-rouge-jaune.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Character/GUI.gd" type="Script" id=5]
-[ext_resource path="res://assets/Food-Drink/Cat-food_size.png" type="Texture" id=6]
+[ext_resource path="res://assets/Food-Drink/cat-food_color.png" type="Texture" id=6]
 [ext_resource path="res://assets/Food-Drink/Health2.png" type="Texture" id=7]
 
 [node name="GUI" type="MarginContainer"]
@@ -36,16 +36,16 @@ __meta__ = {
 }
 
 [node name="EnergyBarArea" type="Node2D" parent="Bars"]
-position = Vector2( -45.929, 6.495 )
+position = Vector2( -22.5585, -23.8467 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="EnergyBar" type="TextureProgress" parent="Bars/EnergyBarArea"]
-margin_left = 84.1155
-margin_top = 17.9464
-margin_right = 480.116
-margin_bottom = 70.9464
+margin_left = 128.156
+margin_top = 58.9226
+margin_right = 524.156
+margin_bottom = 111.923
 size_flags_horizontal = 0
 size_flags_vertical = 0
 value = 100.0
@@ -56,11 +56,11 @@ __meta__ = {
 }
 
 [node name="EnergyText" type="TextureRect" parent="Bars/EnergyBarArea"]
-margin_left = 58.6807
-margin_top = -6.78894
-margin_right = 570.681
-margin_bottom = 505.211
-rect_scale = Vector2( 0.143804, 0.143804 )
+margin_left = 50.671
+margin_top = 29.9606
+margin_right = 562.671
+margin_bottom = 541.961
+rect_scale = Vector2( 0.158891, 0.158891 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = ExtResource( 7 )
@@ -69,13 +69,16 @@ __meta__ = {
 }
 
 [node name="FoodBarArea" type="Node2D" parent="Bars"]
-position = Vector2( -244.336, -57.0784 )
+position = Vector2( -210.591, -24.8142 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="FoodBar" type="TextureProgress" parent="Bars/FoodBarArea"]
-margin_left = 328.45
-margin_top = 151.878
-margin_right = 1352.45
-margin_bottom = 205.878
+margin_left = 317.658
+margin_top = 139.537
+margin_right = 1341.66
+margin_bottom = 193.537
 value = 50.0
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 2 )
@@ -84,10 +87,14 @@ __meta__ = {
 }
 
 [node name="FoodText" type="TextureRect" parent="Bars/FoodBarArea"]
-margin_left = 268.362
-margin_top = 152.027
-margin_right = 321.362
-margin_bottom = 205.027
+margin_left = 242.247
+margin_top = 122.63
+margin_right = 754.247
+margin_bottom = 634.63
+rect_scale = Vector2( 0.138641, 0.138641 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
