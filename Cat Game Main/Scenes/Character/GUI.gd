@@ -71,3 +71,5 @@ func update_food(new_value):
 		food_flashed = false
 		food_tween_low.interpolate_property(foodText,"modulate",foodText.modulate,Color(1,1,1,1),0.75,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
 		food_tween_low.start()
+
+

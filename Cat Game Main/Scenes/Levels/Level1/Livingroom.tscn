@@ -88,7 +88,6 @@ collision_mask = 33
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="RoomFurnitures/Big_Bottom_Lounge/BigLoungeArea"]
 position = Vector2( -1545.79, 113.507 )
 rotation = 2.23517e-08
-scale = Vector2( 1, 1 )
 polygon = PoolVector2Array( -476.76, 175.456, -507.626, 35.1167, -427.528, -103.918, -368.278, -93.0587, -357.966, -62.5521, 182.6, -6.92493, 186.468, -37.7205, 255.191, -21.8429, 258.365, 97.6684, 222.613, 253.626, 181.94, 254.656, 185.103, 236.93, -440.785, 167.097, -445.345, 181.039 )
 
 [node name="Little_Bottom_Lounge" type="Node2D" parent="RoomFurnitures"]
@@ -113,5 +112,17 @@ collision_mask = 33
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="RoomFurnitures/Little_Bottom_Lounge/Little_Bot_LoungeArea"]
 position = Vector2( -1545.79, 113.507 )
 rotation = 2.23517e-08
-scale = Vector2( 1, 1 )
 polygon = PoolVector2Array( 274.46, 255.28, 262.053, 77.6274, 264.577, -11.5734, 327.65, -6.968, 330.237, 18.5067, 525.508, 30.236, 526.464, -0.416336, 594.548, 10.3706, 608.176, 132.231, 585.511, 266.614, 562.701, 263.937, 562.619, 241.553, 291.139, 237.66 )
+
+[node name="Table" type="Node2D" parent="RoomFurnitures"]
+position = Vector2( 661.143, 0 )
+
+[node name="Table_Body" type="StaticBody2D" parent="RoomFurnitures/Table"]
+position = Vector2( -979.594, 195.143 )
+rotation = -0.120816
+scale = Vector2( 0.644314, 0.666547 )
+collision_layer = 4
+collision_mask = 49
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomFurnitures/Table/Table_Body"]
+polygon = PoolVector2Array( 341.561, -134.463, 371.684, -330.473, 744.313, -284.082, 728.203, -79.1106, 699.291, -84.4991, 701.863, -99.4957, 371.46, -136.941, 368.559, -119.322, 339.75, -120.043 )
