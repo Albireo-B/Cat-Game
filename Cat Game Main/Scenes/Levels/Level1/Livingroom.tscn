@@ -1,13 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/Rooms/Furnitures/loungeChairRelax.png" type="Texture" id=1]
 [ext_resource path="res://assets/Rooms/Living_Room_2.png" type="Texture" id=2]
+[ext_resource path="res://assets/Rooms/Furnitures/Table.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 346.838, 206.112 )
 
 [node name="Livingroom" type="Node2D"]
-position = Vector2( 21.0524, -64.2652 )
+position = Vector2( 39.0572, -64.2652 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -117,12 +118,19 @@ polygon = PoolVector2Array( 274.46, 255.28, 262.053, 77.6274, 264.577, -11.5734,
 [node name="Table" type="Node2D" parent="RoomFurnitures"]
 position = Vector2( 661.143, 0 )
 
-[node name="Table_Body" type="StaticBody2D" parent="RoomFurnitures/Table"]
-position = Vector2( -979.594, 195.143 )
-rotation = -0.120816
-scale = Vector2( 0.644314, 0.666547 )
-collision_layer = 4
-collision_mask = 49
+[node name="Sprite" type="Sprite" parent="RoomFurnitures/Table"]
+position = Vector2( -637.999, 21.2596 )
+scale = Vector2( 0.504176, 0.424603 )
+z_index = 2
+texture = ExtResource( 3 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomFurnitures/Table/Table_Body"]
-polygon = PoolVector2Array( 341.561, -134.463, 371.684, -330.473, 744.313, -284.082, 728.203, -79.1106, 699.291, -84.4991, 701.863, -99.4957, 371.46, -136.941, 368.559, -119.322, 339.75, -120.043 )
+[node name="Table_Body" type="StaticBody2D" parent="RoomFurnitures/Table/Sprite"]
+position = Vector2( -677.532, 409.52 )
+rotation = -0.143173
+scale = Vector2( 1.28175, 1.56649 )
+collision_layer = 4
+collision_mask = 35
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomFurnitures/Table/Sprite/Table_Body"]
+scale = Vector2( 1.00412, 1.01077 )
+polygon = PoolVector2Array( 341.561, -134.463, 371.684, -330.473, 743.901, -286.105, 728.308, -81.2926, 699.291, -84.4991, 701.863, -99.4957, 371.46, -136.941, 368.559, -119.322, 339.75, -120.043 )

@@ -24,3 +24,4 @@ func _on_MenuButton_pressed():
 
 func _on_FadeIn_fade_finished():
 	get_tree().change_scene(scene_to_load)
+	get_tree().paused = false

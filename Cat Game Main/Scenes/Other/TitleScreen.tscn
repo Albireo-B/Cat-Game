@@ -56,20 +56,26 @@ alignment = 1
 
 [node name="NewGameButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 4 )]
 margin_top = 67.0
-margin_right = 748.0
+margin_right = 360.0
 margin_bottom = 127.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 scene_to_load = "res://Scenes/Levels/House.tscn"
 
 [node name="ContinueButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 2 )]
 margin_top = 202.0
-margin_right = 748.0
+margin_right = 360.0
 margin_bottom = 262.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 scene_to_load = "res://Scenes/Other/Continue.tscn"
 
 [node name="OptionsButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 3 )]
 margin_top = 337.0
-margin_right = 748.0
+margin_right = 360.0
 margin_bottom = 397.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 scene_to_load = "res://Scenes/Other/Options.tscn"
 
 [node name="CenterContainer" type="CenterContainer" parent="Menu/CenterRow"]

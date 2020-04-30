@@ -25,7 +25,6 @@ margin_top = -360.0
 margin_right = 450.0
 margin_bottom = 360.0
 mouse_filter = 2
-mouse_default_cursor_shape = 2
 color = Color( 0.172549, 0.227451, 0.239216, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
