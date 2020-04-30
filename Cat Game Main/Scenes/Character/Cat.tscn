@@ -30,6 +30,11 @@ animations = [ {
 "name": "idle",
 "speed": 6.0
 }, {
+"frames": [ ExtResource( 2 ), ExtResource( 12 ), ExtResource( 4 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "walking_backward",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 3 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "walking_right",
@@ -43,11 +48,6 @@ animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 16 ), ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "walking_left",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 12 ), ExtResource( 4 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "walking_backward",
 "speed": 5.0
 } ]
 
