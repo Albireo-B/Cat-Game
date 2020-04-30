@@ -75,12 +75,13 @@ Pause={
 
 [layer_names]
 
-2d_physics/layer_1="Cat"
-2d_physics/layer_2="Wall"
+2d_physics/layer_1="Wall"
+2d_physics/layer_2="Poop"
 2d_physics/layer_3="Furnitures"
 2d_physics/layer_4="Food"
 2d_physics/layer_5="Poop"
 2d_physics/layer_6="Humain"
+2d_physics/layer_7="Cat"
 
 [rendering]
 

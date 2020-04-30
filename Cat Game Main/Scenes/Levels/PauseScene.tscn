@@ -51,7 +51,7 @@ margin_right = 474.0
 margin_bottom = 75.0
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 1 )
-text = "Game Paused"
+text = "Game Pause"
 align = 1
 uppercase = true
 
