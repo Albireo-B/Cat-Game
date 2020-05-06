@@ -81,7 +81,6 @@ func collect_poop():
 	set_physics_process(true)
 
 func _on_HumanArea_body_entered(body):
-	print(body)
 	if body.name == "Cat":
 		is_cat_touched = true
 		set_physics_process(false)
