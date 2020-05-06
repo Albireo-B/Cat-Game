@@ -76,3 +76,6 @@ func resume_or_pause():
 	var new_pause_state = !get_tree().paused
 	get_tree().paused = new_pause_state
 	get_parent().get_parent().get_node("PauseScreen/PauseMenu").visible = new_pause_state
+	
+func toggle_poop_restricted_info(poop_info_visible):
+	$Bars/PoopRestrictedInfo/Sprite.visible = poop_info_visible

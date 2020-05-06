@@ -11,10 +11,10 @@ extents = Vector2( 346.838, 206.112 )
 extents = Vector2( 82.4929, 80.1693 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 390.757, 118.398 )
+extents = Vector2( 390.792, 113.243 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 160.045, 95.0491 )
+extents = Vector2( 160.045, 76.3411 )
 
 [node name="Livingroom" type="Node2D"]
 position = Vector2( 39.0572, -64.2652 )
@@ -148,5 +148,5 @@ polygon = PoolVector2Array( 341.561, -134.463, 371.684, -330.473, 743.901, -286.
 [node name="PoopRestrictedZone" type="Area2D" parent="RoomFurnitures/Table"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoomFurnitures/Table/PoopRestrictedZone"]
-position = Vector2( -646.963, 11.6514 )
+position = Vector2( -647.661, 10.2548 )
 shape = SubResource( 4 )

@@ -139,9 +139,9 @@ func _on_EnergyTween_tween_completed(object, key):
 func _on_PoopRestrictedZone_body_entered(body):
 	if body.name == "Cat":
 		on_furniture = true
-		print(on_furniture)
+		get_tree().get_root().get_node("House/UserInterface/GUI").toggle_poop_restricted_info(on_furniture)
 
 func _on_PoopRestrictedZone_body_exited(body):
 	if body.name == "Cat":
 		on_furniture = false
-		print(on_furniture)
+		get_tree().get_root().get_node("House/UserInterface/GUI").toggle_poop_restricted_info(on_furniture)

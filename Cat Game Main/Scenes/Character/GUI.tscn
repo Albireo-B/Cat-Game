@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/GUI/energy_bar_empty.png" type="Texture" id=1]
 [ext_resource path="res://assets/GUI/food_bar_fill_bigger.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/Food-Drink/cat-food_color.png" type="Texture" id=6]
 [ext_resource path="res://assets/Food-Drink/Health2.png" type="Texture" id=7]
 [ext_resource path="res://assets/GUI/pauseButton.png" type="Texture" id=8]
+[ext_resource path="res://assets/GUI/poop_prohibition.png" type="Texture" id=9]
 
 [node name="GUI" type="MarginContainer"]
 anchor_right = 1.0
@@ -123,4 +124,12 @@ texture = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PoopRestrictedInfo" type="Node2D" parent="Bars"]
+
+[node name="Sprite" type="Sprite" parent="Bars/PoopRestrictedInfo"]
+visible = false
+position = Vector2( 597.927, 106.808 )
+scale = Vector2( 0.205037, 0.205037 )
+texture = ExtResource( 9 )
 [connection signal="pressed" from="ButtonControl/ButtonPause" to="." method="_on_ButtonPause_pressed"]

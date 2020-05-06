@@ -69,6 +69,7 @@ position = Vector2( 1.47092, -33.9577 )
 scale = Vector2( 0.90347, 0.90347 )
 frames = SubResource( 1 )
 animation = "poop_collecting"
+frame = 2
 playing = true
 offset = Vector2( 0, -15 )
 
