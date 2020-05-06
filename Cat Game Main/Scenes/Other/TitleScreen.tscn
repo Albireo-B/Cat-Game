@@ -62,13 +62,19 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 scene_to_load = "res://Scenes/Levels/House.tscn"
 
+[node name="Label" parent="Menu/CenterRow/Buttons/NewGameButton" index="0"]
+text = "Play"
+
 [node name="ContinueButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 2 )]
 margin_top = 202.0
 margin_right = 360.0
 margin_bottom = 262.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-scene_to_load = "res://Scenes/Other/Continue.tscn"
+scene_to_load = "res://Scenes/Other/Infos.tscn"
+
+[node name="Label" parent="Menu/CenterRow/Buttons/ContinueButton" index="0"]
+text = "Infos"
 
 [node name="OptionsButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 3 )]
 margin_top = 337.0
@@ -76,7 +82,10 @@ margin_right = 360.0
 margin_bottom = 397.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-scene_to_load = "res://Scenes/Other/Options.tscn"
+scene_to_load = "exit"
+
+[node name="Label" parent="Menu/CenterRow/Buttons/OptionsButton" index="0"]
+text = "Quit"
 
 [node name="CenterContainer" type="CenterContainer" parent="Menu/CenterRow"]
 margin_left = 752.0

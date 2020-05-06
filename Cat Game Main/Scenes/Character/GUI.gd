@@ -15,7 +15,6 @@ var energy_time = 0
 var food_time = 0
 
 func _ready():
-
 	var cat_max_energy = $"../../GameControl/Cat".max_energy
 	var cat_max_food = $"../../GameControl/Cat".max_food
 	energyBar.max_value = cat_max_energy
@@ -25,14 +24,13 @@ func _ready():
 
 func _on_Cat_energy_changed(cat_energy):
 	update_energy(cat_energy)
-	
+
 func _on_Cat_food_changed(cat_food):
 	update_food(cat_food)
-	
+
 func update_energy(new_value):
 	energy_tween.interpolate_property(energyBar,"value",energyBar.value,new_value,0.001,Tween.TRANS_LINEAR)
 	energy_tween.start()
-
 	#Animating the energy bar when the energy is low
 	energy_time += 1
 	if energyBar.value <= 10 and energy_time > 20:
@@ -55,7 +53,6 @@ func update_food(new_value):
 	else :
 		food_tween.interpolate_property(foodBar,"value",foodBar.value,new_value,0.001,Tween.TRANS_LINEAR)
 	food_tween.start()
-	
 	#Animating the food bar when the food is low
 	food_time += 1
 	if foodBar.value <= 10 and food_time > 20:
@@ -72,4 +69,10 @@ func update_food(new_value):
 		food_tween_low.interpolate_property(foodText,"modulate",foodText.modulate,Color(1,1,1,1),0.75,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
 		food_tween_low.start()
 
-
+func _on_ButtonPause_pressed():
+	resume_or_pause()
+	
+func resume_or_pause():
+	var new_pause_state = !get_tree().paused
+	get_tree().paused = new_pause_state
+	get_parent().get_parent().get_node("PauseScreen/PauseMenu").visible = new_pause_state

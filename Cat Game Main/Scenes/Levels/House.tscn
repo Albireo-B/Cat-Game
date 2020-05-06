@@ -10,6 +10,8 @@
 [node name="House" type="Node"]
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
+pause_mode = 2
+layer = 3
 
 [node name="GUI" parent="UserInterface" instance=ExtResource( 4 )]
 
