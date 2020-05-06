@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/Rooms/Furnitures/loungeChairRelax.png" type="Texture" id=1]
 [ext_resource path="res://assets/Rooms/Living_Room_2.png" type="Texture" id=2]
@@ -6,6 +6,15 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 346.838, 206.112 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 82.4929, 80.1693 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 390.757, 118.398 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 160.045, 95.0491 )
 
 [node name="Livingroom" type="Node2D"]
 position = Vector2( 39.0572, -64.2652 )
@@ -67,6 +76,12 @@ collision_mask = 33
 [node name="LoungePolygon" type="CollisionPolygon2D" parent="RoomFurnitures/Right_Lounge/LoungeArea"]
 polygon = PoolVector2Array( -85.4127, 14.5859, -36.0513, 5.08026, -36.0276, -11.5459, -28.5682, -10.6705, -28.5833, -37.9437, -28.2931, -51.2127, -19.6616, -54.1907, 42.3564, -54.8943, 54.1316, -55.5078, 76.9102, -105.382, 104.96, -104.086, 126.157, -53.7067, 126.995, -32.9884, 91.3907, 31.3443, 92.355, 40.1044, 82.6833, 106.15, -33.6467, 106.466, -36.6407, 75.5177, -88.2013, 86.0956, -94.5079, 76.0433 )
 
+[node name="PoopRestrictedZone" type="Area2D" parent="RoomFurnitures/Right_Lounge"]
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="RoomFurnitures/Right_Lounge/PoopRestrictedZone"]
+position = Vector2( 16.4904, 1.43394 )
+shape = SubResource( 2 )
+
 [node name="Big_Bottom_Lounge" type="Node2D" parent="RoomFurnitures"]
 position = Vector2( 661.143, 0 )
 
@@ -89,7 +104,13 @@ collision_mask = 33
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="RoomFurnitures/Big_Bottom_Lounge/BigLoungeArea"]
 position = Vector2( -1545.79, 113.507 )
 rotation = 2.23517e-08
-polygon = PoolVector2Array( -476.76, 175.456, -507.626, 35.1167, -427.528, -103.918, -368.278, -93.0587, -357.966, -62.5521, 182.6, -6.92493, 186.468, -37.7205, 255.191, -21.8429, 258.365, 97.6684, 222.613, 253.626, 181.94, 254.656, 185.103, 236.93, -440.785, 167.097, -445.345, 181.039 )
+polygon = PoolVector2Array( -482.924, 189.143, -507.626, 35.1167, -427.528, -103.918, -368.278, -93.0587, -357.966, -62.5521, 182.6, -6.92493, 186.468, -37.7205, 269.667, -19.4041, 328.146, -8.0168, 332.726, 15.1422, 519.49, 26.2021, 520.306, -2.65765, 597.989, 10.49, 610.661, 147.511, 582.828, 314.217, 173.969, 266.234, -477.536, 191.997, -440.785, 167.097, -445.345, 181.039 )
+
+[node name="PoopRestrictedZone" type="Area2D" parent="RoomFurnitures/Big_Bottom_Lounge"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomFurnitures/Big_Bottom_Lounge/PoopRestrictedZone"]
+position = Vector2( -942.704, 254.942 )
+shape = SubResource( 3 )
 
 [node name="Little_Bottom_Lounge" type="Node2D" parent="RoomFurnitures"]
 position = Vector2( 661.143, 0 )
@@ -102,17 +123,6 @@ collision_layer = 4
 collision_mask = 48
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomFurnitures/Little_Bottom_Lounge/Little_Bot_LoungeBody"]
-polygon = PoolVector2Array( 274.46, 255.28, 262.053, 77.6274, 264.577, -11.5734, 327.65, -6.968, 330.237, 18.5067, 525.508, 30.236, 526.464, -0.416336, 594.548, 10.3706, 608.176, 132.231, 585.511, 266.614, 562.701, 263.937, 562.619, 241.553, 291.139, 237.66 )
-
-[node name="Little_Bot_LoungeArea" type="Area2D" parent="RoomFurnitures/Little_Bottom_Lounge"]
-rotation = -0.120816
-scale = Vector2( 0.644314, 0.666547 )
-collision_layer = 4
-collision_mask = 33
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="RoomFurnitures/Little_Bottom_Lounge/Little_Bot_LoungeArea"]
-position = Vector2( -1545.79, 113.507 )
-rotation = 2.23517e-08
 polygon = PoolVector2Array( 274.46, 255.28, 262.053, 77.6274, 264.577, -11.5734, 327.65, -6.968, 330.237, 18.5067, 525.508, 30.236, 526.464, -0.416336, 594.548, 10.3706, 608.176, 132.231, 585.511, 266.614, 562.701, 263.937, 562.619, 241.553, 291.139, 237.66 )
 
 [node name="Table" type="Node2D" parent="RoomFurnitures"]
@@ -134,3 +144,9 @@ collision_mask = 35
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoomFurnitures/Table/Sprite/Table_Body"]
 scale = Vector2( 1.00412, 1.01077 )
 polygon = PoolVector2Array( 341.561, -134.463, 371.684, -330.473, 743.901, -286.105, 728.308, -81.2926, 699.291, -84.4991, 701.863, -99.4957, 371.46, -136.941, 368.559, -119.322, 339.75, -120.043 )
+
+[node name="PoopRestrictedZone" type="Area2D" parent="RoomFurnitures/Table"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomFurnitures/Table/PoopRestrictedZone"]
+position = Vector2( -646.963, 11.6514 )
+shape = SubResource( 4 )

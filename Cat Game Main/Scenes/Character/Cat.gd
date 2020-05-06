@@ -20,7 +20,8 @@ var food = 0
 var velocity = Vector2()
 var anim = "idle"
 var can_move = true
-var can_shit = true
+var can_poop = true
+var on_furniture = false
 
 func _ready():
 	energy = max_energy
@@ -63,7 +64,7 @@ func control():
 	energy -= energy_dec
 	food -= food_dec
 	#set food if cat shitting and instanciate shit
-	if can_shit:
+	if can_poop and !on_furniture:
 		if Input.is_action_just_pressed("defecating"):
 			food -= defecate_food_amount
 			instanciatePoop()
@@ -77,10 +78,10 @@ func control():
 	#set food limitation (for movement and defecating)
 	if food <=0 and (velocity.x != 0 or velocity.y !=0):
 		velocity /= 2
-	elif food < defecate_food_amount:
-		can_shit = false
-	elif food >= defecate_food_amount:
-		can_shit = true
+	elif food < defecate_food_amount and !on_furniture:
+		can_poop = false
+	elif food >= defecate_food_amount and !on_furniture:
+		can_poop = true
 	#set animations
 	if velocity.x == 0 && velocity.y == 0:
 		anim = "idle"
@@ -135,3 +136,12 @@ func _on_FoodTween_tween_completed(object, key):
 func _on_EnergyTween_tween_completed(object, key):
 	emit_signal("energy_changed",energy)
 
+func _on_PoopRestrictedZone_body_entered(body):
+	if body.name == "Cat":
+		on_furniture = true
+		print(on_furniture)
+
+func _on_PoopRestrictedZone_body_exited(body):
+	if body.name == "Cat":
+		on_furniture = false
+		print(on_furniture)

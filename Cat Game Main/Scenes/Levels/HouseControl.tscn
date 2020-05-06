@@ -42,11 +42,14 @@ __meta__ = {
 [node name="Livingroom" parent="Rooms" instance=ExtResource( 3 )]
 position = Vector2( 0, 0 )
 
-[node name="CollisionPolygon2D2" parent="Rooms/Livingroom/RoomFurnitures/Big_Bottom_Lounge/BigLoungeArea" index="0"]
-polygon = PoolVector2Array( -476.76, 175.456, -507.626, 35.1167, -427.528, -103.918, -368.278, -93.0587, -357.966, -62.5521, 182.6, -6.92493, 186.282, -29.0355, 247.733, -22.6832, 239.423, 100.127, 222.613, 253.626, 181.94, 254.656, 185.103, 236.93, -440.785, 167.097, -445.345, 181.039 )
+[node name="LoungeBody" parent="Rooms/Livingroom/RoomFurnitures/Right_Lounge/LoungeSprite" index="0"]
+collision_mask = 50
 
-[node name="CollisionPolygon2D2" parent="Rooms/Livingroom/RoomFurnitures/Little_Bottom_Lounge/Little_Bot_LoungeArea" index="0"]
-polygon = PoolVector2Array( 280.822, 251.98, 274.483, 75.8737, 272.641, -8.58508, 327.65, -6.968, 330.237, 18.5067, 525.508, 30.236, 526.464, -0.416336, 594.548, 10.3706, 608.176, 132.231, 585.511, 266.614, 562.701, 263.937, 562.619, 241.553, 296.759, 238.377 )
+[node name="BigLoungeBody" parent="Rooms/Livingroom/RoomFurnitures/Big_Bottom_Lounge" index="0"]
+collision_mask = 50
+
+[node name="Little_Bot_LoungeBody" parent="Rooms/Livingroom/RoomFurnitures/Little_Bottom_Lounge" index="0"]
+collision_mask = 50
 
 [node name="Bathroom" parent="Rooms" instance=ExtResource( 2 )]
 

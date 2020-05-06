@@ -38,19 +38,11 @@ __meta__ = {
 mouse_filter = 2
 
 [node name="LoungeArea" parent="HouseControl/Rooms/Livingroom/RoomFurnitures/Right_Lounge" index="1"]
+scale = Vector2( 0.645934, 0.667039 )
 collision_mask = 97
 
 [node name="BigLoungeArea" parent="HouseControl/Rooms/Livingroom/RoomFurnitures/Big_Bottom_Lounge" index="1"]
 collision_mask = 97
-
-[node name="CollisionPolygon2D2" parent="HouseControl/Rooms/Livingroom/RoomFurnitures/Big_Bottom_Lounge/BigLoungeArea" index="0"]
-polygon = PoolVector2Array( -476.76, 175.456, -507.626, 35.1167, -427.528, -103.918, -368.278, -93.0587, -357.966, -62.5521, 182.6, -6.92493, 186.282, -29.0355, 216.714, -24.4232, 203.353, 98.3934, 191.136, 255.932, 181.94, 254.656, 185.103, 236.93, -440.785, 167.097, -445.345, 181.039 )
-
-[node name="Little_Bot_LoungeArea" parent="HouseControl/Rooms/Livingroom/RoomFurnitures/Little_Bottom_Lounge" index="1"]
-collision_mask = 97
-
-[node name="CollisionPolygon2D2" parent="HouseControl/Rooms/Livingroom/RoomFurnitures/Little_Bottom_Lounge/Little_Bot_LoungeArea" index="0"]
-polygon = PoolVector2Array( 280.822, 251.98, 329.812, 110.574, 272.641, -8.58508, 327.65, -6.968, 330.237, 18.5067, 525.508, 30.236, 526.464, -0.416336, 594.548, 10.3706, 608.176, 132.231, 585.511, 266.614, 562.701, 263.937, 562.619, 241.553, 296.759, 238.377 )
 
 [node name="GameControl" type="Control" parent="."]
 anchor_left = 0.5
@@ -78,10 +70,14 @@ layer = 2
 [connection signal="tween_completed" from="UserInterface/GUI/FoodTween" to="GameControl/Cat" method="_on_FoodTween_tween_completed"]
 [connection signal="body_entered" from="HouseControl/Rooms/Livingroom/RoomFurnitures/Right_Lounge/LoungeArea" to="GameControl/Cat" method="_on_furniture_entered"]
 [connection signal="body_exited" from="HouseControl/Rooms/Livingroom/RoomFurnitures/Right_Lounge/LoungeArea" to="GameControl/Cat" method="_on_furniture_exited"]
+[connection signal="body_entered" from="HouseControl/Rooms/Livingroom/RoomFurnitures/Right_Lounge/PoopRestrictedZone" to="GameControl/Cat" method="_on_PoopRestrictedZone_body_entered"]
+[connection signal="body_exited" from="HouseControl/Rooms/Livingroom/RoomFurnitures/Right_Lounge/PoopRestrictedZone" to="GameControl/Cat" method="_on_PoopRestrictedZone_body_exited"]
 [connection signal="body_entered" from="HouseControl/Rooms/Livingroom/RoomFurnitures/Big_Bottom_Lounge/BigLoungeArea" to="GameControl/Cat" method="_on_furniture_entered"]
 [connection signal="body_exited" from="HouseControl/Rooms/Livingroom/RoomFurnitures/Big_Bottom_Lounge/BigLoungeArea" to="GameControl/Cat" method="_on_furniture_exited"]
-[connection signal="body_entered" from="HouseControl/Rooms/Livingroom/RoomFurnitures/Little_Bottom_Lounge/Little_Bot_LoungeArea" to="GameControl/Cat" method="_on_furniture_entered"]
-[connection signal="body_exited" from="HouseControl/Rooms/Livingroom/RoomFurnitures/Little_Bottom_Lounge/Little_Bot_LoungeArea" to="GameControl/Cat" method="_on_furniture_exited"]
+[connection signal="body_entered" from="HouseControl/Rooms/Livingroom/RoomFurnitures/Big_Bottom_Lounge/PoopRestrictedZone" to="GameControl/Cat" method="_on_PoopRestrictedZone_body_entered"]
+[connection signal="body_exited" from="HouseControl/Rooms/Livingroom/RoomFurnitures/Big_Bottom_Lounge/PoopRestrictedZone" to="GameControl/Cat" method="_on_PoopRestrictedZone_body_exited"]
+[connection signal="body_entered" from="HouseControl/Rooms/Livingroom/RoomFurnitures/Table/PoopRestrictedZone" to="GameControl/Cat" method="_on_PoopRestrictedZone_body_entered"]
+[connection signal="body_exited" from="HouseControl/Rooms/Livingroom/RoomFurnitures/Table/PoopRestrictedZone" to="GameControl/Cat" method="_on_PoopRestrictedZone_body_exited"]
 [connection signal="cat_covered" from="GameControl/Cat" to="GameControl/Human" method="_on_Cat_cat_covered"]
 [connection signal="energy_changed" from="GameControl/Cat" to="UserInterface/GUI" method="_on_Cat_energy_changed"]
 [connection signal="food_changed" from="GameControl/Cat" to="UserInterface/GUI" method="_on_Cat_food_changed"]
