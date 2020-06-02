@@ -39,8 +39,6 @@ func set_animations(target_position):
 		elif diff.x < 0:
 			anim = "walking_right"
 
-
-	
 #	Check if a poop exist, and if yes, got to it direction and return true. Otherwise return false
 func check_poops() :
 	var all_poops = $"../Poops"
